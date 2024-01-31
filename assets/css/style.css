@@ -9,18 +9,13 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #414e5e;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 a {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #414e5e;
 }
-
-/* a:hover {
-    color: #446894;
-    border-bottom: solid 1px #446894;
-} */
 
 
 /* Header */
@@ -41,7 +36,7 @@ h2 {
 /* Navbar */
 
 #nav-row {
-    background-color: #c6dbef;
+    background-color: #c6d8ef;
     text-transform: lowercase;
 }
 
@@ -52,6 +47,7 @@ h2 {
 
 .nav-link {
     color: #39577c;
+    font-size: 1.15rem;
 }
 
 .nav-link:hover {
@@ -61,17 +57,44 @@ h2 {
 
 .active {
     --bs-nav-tabs-link-active-color: #39577c;
-    --bs-nav-tabs-link-active-bg: #a6c9ea;
+    --bs-nav-tabs-link-active-bg: #a7c4ec;
 }
 
 
 /* Main Panel */
 
 .panel {
-    background-color: #dde9f4;
+    background-color: #e1ebf4;
     padding: 2%;
 }
 
 .inner-panel {
     background-color: white;
+}
+
+
+/* Articles */
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h4 {
+    font-family: Diphylleia, serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-style: italic;
+}
+
+
+/* Footer */
+
+#footer-row {
+    height: 10%;
+    background-color: #c6d8ef;
+}
+
+h5 {
+    color: #39577c;
+    font-size: 1.05rem;
 }
