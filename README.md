@@ -2,7 +2,7 @@
 
 Not Suitable for Life is a personal blog where I can share my thoughts and experiences around navigating a world where everything just is not designed for people like you. By which I mean, people with anxiety, introverts, highly sensitive people, people any form of neurodivergence... When the world expects everyone to be everything you are not, it's a constant struggle just to make it through each day without having all your energy drained out of you.
 
-This blog hopes to both allow me the space and freedom to write about these things, because writing is often the best way for me to process and deal with my feelings - as well as hopefully offering a sense of companionship and compassion to anyone else who, like me, finds the world to be a too loud, too much, too difficult place. Perhaps even helping other lost souls to figure out why they have always felt out of step with the world. But also, hopefully, shining light on the perspective that it's not us that is wrong, it's just that world isn't set up to accommodate people like us. And maybe that's something that needs to change.
+This blog hopes to both allow me the space and freedom to write about these things, because writing is often the best way for me to process and deal with my feelings - as well as hopefully offering a sense of companionship and compassion to anyone else who, like me, finds the world to be a too loud, too much, too difficult place. Perhaps even helping other lost souls to figure out why they have always felt out of step with the world. But also, hopefully, shining light on the perspective that it's not us that is wrong, it's just that the world isn't set up to accommodate people like us. And maybe that's something that needs to change.
 
 ## Features
 
