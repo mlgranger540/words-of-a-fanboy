@@ -12,23 +12,42 @@ body {
     font-size: 1.05rem;
 }
 
+p {
+    margin-bottom: 0.6rem;
+}
+
+ul {
+    padding-left: 0;
+}
+
 a {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #414e5e;
 }
 
+.row {
+    --bs-gutter-x: 0;
+}
+
 
 /* Header */
+
+#title {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 2.4rem;
+}
 
 h1 {
     font-family: 'Patrick Hand', cursive;
     font-size: 3.6rem;
     text-align: right;
+    margin-bottom: 0.8rem;
 }
 
 h2 {
-    text-align: right;
     font-size: 1.2rem;
+    text-align: right;
     text-transform: lowercase;
 }
 
@@ -36,40 +55,70 @@ h2 {
 /* Navbar */
 
 #nav-row {
-    background-color: #c6d8ef;
+    /* background-color: #c2daf2; */
+    /* background-color: #c6ddf4; */
+    /* background-color: #c9e1f5; */
     text-transform: lowercase;
 }
 
 .nav-tabs {
-    --bs-nav-tabs-border-width: none;
+    background-color: #c9e1f5;
+    --bs-nav-tabs-border-width: 0;
     --bs-nav-tabs-border-radius: 0;
 }
 
 .nav-link {
     color: #39577c;
     font-size: 1.15rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-left: solid 2px #fff !important;
+    border-right: solid 2px #fff !important;
+    border-top: none !important;
+    border-bottom: none !important;
 }
 
 .nav-link:hover {
-    color: #446894;
+    color: #f7fbff;
     text-decoration: underline;
+    /* --bs-nav-tabs-link-active-color: #e2eefd; */
+    --bs-nav-tabs-link-active-color: #e5f0fd;
 }
 
 .active {
     --bs-nav-tabs-link-active-color: #39577c;
     --bs-nav-tabs-link-active-bg: #a7c4ec;
+    --bs-nav-tabs-link-active-border-color: #fff;
 }
 
 
-/* Main Panel */
+/* Panels */
 
 .panel {
     background-color: #e1ebf4;
-    padding: 2%;
+    padding: 2rem 3rem;
 }
 
 .inner-panel {
-    background-color: white;
+    background-color: #fff;
+    padding: 2.6rem;
+}
+
+.side-panel {
+    padding: 2rem;
+    /* margin: 2rem; */
+}
+
+#side-panel-1{
+    background-color: #a7c4ec;
+    margin-bottom: 0;
+}
+
+#side-panel-2 {
+    background-color: #98dffb;
+    margin-top: 0;
 }
 
 
@@ -86,15 +135,51 @@ h4 {
     font-style: italic;
 }
 
+#article-row {
+    margin-left: 4.5rem;
+    margin-right: 4.5rem;
+}
+
+.entry-date {
+    margin-bottom: 1.2rem;
+}
+
+
+/* Sidebar */
+
+.sidebar-text {
+    color: #fff;
+}
+
+.sidebar-text p {
+    margin-bottom: 0.4rem;
+}
+
+.nav-list {
+    list-style-type: none;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    text-decoration: underline;
+}
+
 
 /* Footer */
 
 #footer-row {
-    height: 10%;
-    background-color: #c6d8ef;
+    /* background-color: #c6daf4; */
+    background-color: #c9e1f5;
+    padding: 1.6rem 0 1.6rem 0;
 }
 
 h5 {
     color: #39577c;
     font-size: 1.05rem;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
 }
