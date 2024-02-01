@@ -74,8 +74,8 @@ h2 {
     padding-bottom: 0.8rem;
     padding-left: 3rem;
     padding-right: 3rem;
-    border-left: solid 2px #fff !important;
-    border-right: solid 2px #fff !important;
+    border-left: 2px solid #fff !important;
+    border-right: 2px solid #fff !important;
     border-top: none !important;
     border-bottom: none !important;
 }
@@ -94,11 +94,18 @@ h2 {
 }
 
 
+/* Main Section */
+
+#content-row {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
 /* Panels */
 
 .panel {
     background-color: #e1ebf4;
-    padding: 2rem 3rem;
+    padding: 2.5rem 3rem;
 }
 
 .inner-panel {
@@ -108,19 +115,18 @@ h2 {
 
 .side-panel {
     padding: 2rem;
-    /* margin: 2rem; */
+    margin: 2.5rem;
 }
 
 #side-panel-1{
-    background-color: #a7c4ec;
+    background-color: #527db1;
     margin-bottom: 0;
 }
 
 #side-panel-2 {
-    background-color: #98dffb;
+    background-color: #64c2e7;
     margin-top: 0;
 }
-
 
 /* Articles */
 
@@ -135,17 +141,27 @@ h4 {
     font-style: italic;
 }
 
-#article-row {
-    margin-left: 4.5rem;
-    margin-right: 4.5rem;
+hr {
+    width: 75%;
+    margin: auto;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+.separator {
+    background-color: #fff;
 }
 
 .entry-date {
     margin-bottom: 1.2rem;
 }
 
-
 /* Sidebar */
+
+#sidebar {
+    background-color: #88a9d7;
+    
+}
 
 .sidebar-text {
     color: #fff;
@@ -155,16 +171,16 @@ h4 {
     margin-bottom: 0.4rem;
 }
 
-.nav-list {
+.side-list {
     list-style-type: none;
 }
 
-.nav-list a {
+.side-list a {
     color: #fff;
     text-decoration: none;
 }
 
-.nav-list a:hover {
+.side-list a:hover {
     text-decoration: underline;
 }
 
