@@ -28,11 +28,11 @@ Maybe that could include contact information too. But I may need to set up a new
 
 ### Features to Add
 
-It would be nice eventually to have a way for visitors to create an account to and to be able to respond to blog posts with some form of like feature and comments.
+It would be nice eventually to have a way for visitors to create an account, so that they could respond to blog posts with some form of like feature and leave comments, maybe bookmark their favourite articles etc.
 
 A calendar feature would be nice as well, to get an overview of how many entries were posted in each month/year etc.
 
-Probably a contact form too so people can easily send messages/questions/articles they'd like to see etc.
+Probably a contact form too so people can easily send in questions/messages/articles they'd like to see etc.
 
 Also eventually it would be good to have a 'sign up for updates' feature where people could then get emails when I post.
 
