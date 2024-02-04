@@ -1,8 +1,16 @@
 # Not Suitable for Life Blog
 
-Not Suitable for Life is a personal blog where I can share my thoughts and experiences around navigating a world where everything just is not designed for people like you. By which I mean, people with anxiety, introverts, highly sensitive people, people any form of neurodivergence... When the world expects everyone to be everything you are not, it's a constant struggle just to make it through each day without having all your energy drained out of you.
+Not Suitable for Life is a personal blog where I can share my thoughts and experiences around navigating a world where everything just is not designed for people like you. By which I mean, people with anxiety, introverts, highly sensitive people, people with any form of neurodivergence... When the world expects everyone to be everything you are not, it's a constant struggle just to make it through each day without having all the energy drained out of you.
 
 This blog hopes to both allow me the space and freedom to write about these things, because writing is often the best way for me to process and deal with my feelings - as well as hopefully offering a sense of companionship and compassion to anyone else who, like me, finds the world to be a too loud, too much, too difficult place. Perhaps even helping other lost souls to figure out why they have always felt out of step with the world. But also, hopefully, shining light on the perspective that it's not us that is wrong, it's just that the world isn't set up to accommodate people like us. And maybe that's something that needs to change.
+
+## Design
+
+I visualised a couple different possible designs for the homepage using wireframes to help make a decision on the look of the site.
+
+<img alt="Home Wireframe V1" src="./readme-images/home-wireframe-v1.png" width="50%"><img alt="Home Wireframe V2" src="./readme-images/home-wireframe-v2.png" width="50%">
+
+I'm still somewhat torn but leaning more towards version 2. Though I'm planning to add some decoration to the corners of the page, as I like the minimalist mostly white design but also don't want to have too much blank space.
 
 ## Features
 
@@ -36,6 +44,16 @@ Probably a contact form too so people can easily send in questions/messages/arti
 
 Also eventually it would be good to have a 'sign up for updates' feature where people could then get emails when I post.
 
+## Content Management System
+
+[Prismic](https://prismic.io/) Headless CMS is used to create, manage and publish the blog posts to the site.
+
+## Deployment
+
+The site is hosted on [Google Firebase](https://firebase.google.com/).
+
+The live site can be found [here](https://not-suitable-for-life.web.app/) or [here](https://not-suitable-for-life.firebaseapp.com/).
+
 ## Technologies
 
 ### Languages
@@ -43,12 +61,13 @@ Also eventually it would be good to have a 'sign up for updates' feature where p
 - HTML5
 - CSS3
 
-### Frameworks, Libraries, External Stylesheets etc
+### Frameworks, Libraries, Programs, External Stylesheets etc
 
 - [Git](https://git-scm.com/) for version control
 - [GitHub](https://github.com/) to store the project repository and back up git commits
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in the structure and design of the site
 - [Google Fonts](https://fonts.google.com/) for the title font
+- [Justinmind](https://www.justinmind.com/) to create the wireframes
 
 ## Known Bugs
 
