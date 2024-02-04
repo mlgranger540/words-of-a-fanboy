@@ -158,6 +158,15 @@ hr {
     margin-bottom: 1.2rem;
 }
 
+.tag {
+    color: #71849b;
+    font-size: 89%;
+    font-style: italic;
+    letter-spacing: 0.05rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+}
+
 /* Sidebar */
 
 #sidebar {

@@ -25,14 +25,17 @@ window.onload = async function(){
         });
         
         // Add blog posts to article section
-        let articleDiv = '<div id="article-div" class="panel col-xl-7 col-lg-8">';
+        let articleDiv = document.getElementById("article-div");
+        let article = '';
         blogPosts.forEach((blog) => {
+          // Loop through title objects
           let titleObjs = blog.title;
           let titles = [];
           titleObjs.forEach((title) => {
             title = title.text;
             titles.push(title);
           });
+          // Loop through content objects
           let contentObjs = blog.content;
           let paragraphs = [];
           contentObjs.forEach((paragraph) => {
@@ -40,20 +43,27 @@ window.onload = async function(){
             paragraphs.push(paragraph);
           });
           let dateCreated = blog.dateCreated;
+          // Loop through tags and add hash
           let tags = blog.tags;
-          articleDiv = '<article class="inner-panel">';
-          articleDiv += '<h3>' + titles + '</h3>';
-          articleDiv += '<h4 class="entry-date">' + dateCreated + '</h4>';
-          paragraphs.forEach((paragraph) => {
-            articleDiv += '<p>' + paragraph + '</p>';
+          let hashtags = [];
+          tags.forEach((tag) => {
+            tag = '#' + tag;
+            hashtags.push(tag);
           })
-          articleDiv += '<p>' + tags + '</p>';
-          articleDiv += '</article>';
-          articleDiv += '<div class="separator"><hr></div>';
-          console.log(articleDiv);
+          article += '<article class="inner-panel">';
+          article += '<h3>' + titles + '</h3>';
+          article += '<h4 class="entry-date">' + dateCreated + '</h4>';
+          paragraphs.forEach((paragraph) => {
+            article += '<p>' + paragraph + '</p>';
+          })
+          article += '<p class="tag">';
+          hashtags.forEach((tag) => {
+            article += tag + '&nbsp;&nbsp;';
+          })
+          article += '</p>';
+          article += '</article>';
+          article += '<div class="separator"><hr></div>';
         });
-        console.log(articleDiv);
-        articleDiv += '</div>';
-        document.getElementById("article-div").innerHTML = articleDiv;
+        articleDiv.innerHTML = article;
       });
 };
