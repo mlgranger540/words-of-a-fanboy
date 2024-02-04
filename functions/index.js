@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * Import function triggers from their respective submodules:
  *
@@ -8,14 +9,29 @@
  */
 
 const functions = require("firebase-functions");
-const express = require('express');
-const client = require('./config/prismicConfig.js');
-//const client = await import('./config/prismicConfig.js');
+const express = require("express");
+const prismic = require("@prismicio/client");
+const fetch =  (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-//const logger = require("firebase-functions/logger");
+const repoName = 'not-suitable-for-life' // Fill in your repository name.
+const accessToken = '' // If your repository is private, add an access token.
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+// The `routes` property is your route resolver. It defines how you will 
+// structure URLs in your project. Update the types to match the Custom 
+// Types in your project, and edit the paths to match the routing in your 
+// project.
+const routes = [
+  {
+    type: 'blog_post',
+    path: '/:uid',
+  },
+]
+
+const client = prismic.createClient(repoName, { 
+  fetch, 
+  accessToken,
+  routes,
+})
 
 const app = express();
 
@@ -29,9 +45,10 @@ app.use((req, res, next) => {
     next();
   });
 
-app.get('/getBlogPosts', async (req, res)=>{
-    const document = await client.getSingle('blog_post');
-    res.send(document);
+app.get("/getBlogPosts", async (req, res)=>{
+    const documents = await client.getAllByType("blog_post");
+    console.log(documents)
+    res.send(documents);
 });
 
 exports.app = functions.https.onRequest(app);
