@@ -1,3 +1,4 @@
 node_modules/
 .firebase
 .github
+functions/firebase-debug.log
