@@ -78,7 +78,7 @@ None... so far ;)
 
 [This stackoverflow post](https://stackoverflow.com/questions/24749399/centering-an-hr-tag) helped with centering my hr tag.
 
-[This post](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314) helped to format my dates with the full month name.
+[This post](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314) helped to format my dates with the full month name, and [this one](https://www.w3resource.com/javascript-exercises/javascript-date-exercise-23.php) helped with adding ordinal suffixes to the day number.
 
 [This one](https://stackoverflow.com/questions/4820230/display-multiple-spaces-in-html) helped with adding multiple white spaces to HTML.
 

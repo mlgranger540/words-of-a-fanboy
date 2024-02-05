@@ -21,16 +21,16 @@ const accessToken = '' // If your repository is private, add an access token.
 // Types in your project, and edit the paths to match the routing in your 
 // project.
 const routes = [
-  {
-    type: 'blog_post',
-    path: '/:uid',
-  },
+    {
+        type: 'blog_post',
+        path: '/:uid',
+    },
 ]
 
 const client = prismic.createClient(repoName, { 
-  fetch, 
-  accessToken,
-  routes,
+    fetch, 
+    accessToken,
+    routes,
 })
 
 const app = express();
@@ -40,7 +40,7 @@ const app = express();
 // our templates.
 app.use((req, res, next) => {
     res.locals.ctx = {
-      prismic,
+        prismic,
     };
     next();
   });
