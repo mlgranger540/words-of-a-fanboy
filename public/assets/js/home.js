@@ -9,6 +9,7 @@ window.onload = async function(){
         let blogPosts = [];
         res.forEach((blog) => {
             let blogPost = {};
+            let id = blog.uid;
             let title = blog.data.title;
             let rawDate = new Date(blog.data.date_created);
             let day = rawDate.getDate();
@@ -17,6 +18,7 @@ window.onload = async function(){
             let dateCreated = day + " " + month + " " + year;
             let content = blog.data.content;
             let tags = blog.data.tags.split(',');
+            blogPost.id = id;
             blogPost.title = title;
             blogPost.dateCreated = dateCreated;
             blogPost.content = content;
@@ -26,8 +28,11 @@ window.onload = async function(){
         
         // Add blog posts to article section
         let articleDiv = document.getElementById("article-div");
+        let quickNav = document.getElementById("quick-nav");
         let article = '';
+        let quickNavLinks = '';
         blogPosts.forEach((blog) => {
+          let id = blog.id;
           // Loop through title objects
           let titleObjs = blog.title;
           let titles = [];
@@ -50,7 +55,9 @@ window.onload = async function(){
             tag = '#' + tag;
             hashtags.push(tag);
           })
-          article += '<article class="inner-panel">';
+
+          // Add data to article HTML
+          article += '<article id="' + id + '" class="inner-panel">';
           article += '<h3>' + titles + '</h3>';
           article += '<h4 class="entry-date">' + dateCreated + '</h4>';
           paragraphs.forEach((paragraph) => {
@@ -63,7 +70,11 @@ window.onload = async function(){
           article += '</p>';
           article += '</article>';
           article += '<div class="separator"><hr></div>';
+
+          // Create quick nav links
+          quickNavLinks += '<li><a href="#' + id + '">' + titles + '</a></li>';
         });
         articleDiv.innerHTML = article;
+        quickNav.innerHTML = quickNavLinks;
       });
 };
