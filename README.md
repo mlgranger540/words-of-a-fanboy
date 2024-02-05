@@ -46,13 +46,11 @@ Also eventually it would be good to have a 'sign up for updates' feature where p
 
 ## Content Management System
 
-[Prismic](https://prismic.io/) Headless CMS is used to create, manage and publish the blog posts to the site.
+[Prismic](https://prismic.io/), a headless content management system, is used to create, manage and publish the blog posts to the site. In Prismic I have defined a Blog Post repeatable type which includes an ID number, title, content, date created and tags. I enter this information for each blog post in Prismic where it is saved and stored. Once published, this data is then converted into JSON to be accessible in my code, and then displayed as HTML on my webpages.
 
 ## Deployment
 
-The site is hosted on [Google Firebase](https://firebase.google.com/).
-
-The live site can be found [here](https://not-suitable-for-life.web.app/) or [here](https://not-suitable-for-life.firebaseapp.com/).
+The site is hosted on [Google Firebase](https://firebase.google.com/). The live site can be found [here](https://not-suitable-for-life.web.app/) or [here](https://not-suitable-for-life.firebaseapp.com/).
 
 ## Technologies
 
@@ -66,7 +64,8 @@ The live site can be found [here](https://not-suitable-for-life.web.app/) or [he
 - [Git](https://git-scm.com/) for version control
 - [GitHub](https://github.com/) to store the project repository and back up git commits
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in the structure and design of the site
-- [Google Fonts](https://fonts.google.com/) for the title font
+- [Prismic Headless CMS](https://prismic.io/) to manage my blog content
+- [Google Fonts](https://fonts.google.com/) for the blog title and date fonts
 - [Justinmind](https://www.justinmind.com/) to create the wireframes
 
 ## Known Bugs
@@ -78,6 +77,10 @@ None... so far ;)
 ### Code
 
 [This stackoverflow post](https://stackoverflow.com/questions/24749399/centering-an-hr-tag) helped with centering my hr tag.
+
+[This post](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314) helped to format my dates with the full month name.
+
+[This one](https://stackoverflow.com/questions/4820230/display-multiple-spaces-in-html) helped with adding multiple white spaces to HTML.
 
 ### Content and Media
 
