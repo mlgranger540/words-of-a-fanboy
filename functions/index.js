@@ -13,7 +13,7 @@ const express = require("express");
 const prismic = require("@prismicio/client");
 const fetch =  (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-const repoName = 'not-suitable-for-life' // Fill in your repository name.
+const repoName = 'words-of-a-fanboy' // Fill in your repository name.
 const accessToken = '' // If your repository is private, add an access token.
 
 // The `routes` property is your route resolver. It defines how you will 
@@ -51,4 +51,4 @@ app.get("/getBlogPosts", async (req, res)=>{
     res.send(documents);
 });
 
-exports.app = functions.https.onRequest(app);
+exports.woaf_app = functions.https.onRequest(app);

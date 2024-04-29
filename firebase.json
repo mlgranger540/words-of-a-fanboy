@@ -3,7 +3,7 @@
     "public": "public",
     "rewrites":[{
       "source":"**",
-      "function":"app"
+      "function":"woaf_app"
     }],
     "ignore": [
       "firebase.json",
