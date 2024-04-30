@@ -26,7 +26,7 @@ Along the bottom of the image is the navbar, which features links to all the mai
 
 The landing page of the blog is the Recent page, which will display the most recently posted entries, newest first, in the left panel. These contain a post title, date, content, and tags, which help let the reader know what topics are covered in the post.
 
-On the right, there is a sidebar which will contain a brief author profile, which links to a full About the Author page. Underneath this there will be a quick nav panel which provides links to all the entries displayed on the recent page, to make it easier to jump between them. I may try and make this sidebar sticky as well.
+On the right, there is a sidebar which will contain a brief author profile, which links to a full About the Author page. Underneath this there will be a quick nav panel which provides links to all the entries displayed on the recent page, to make it easier to jump between them. I may make this sidebar sticky as well.
 
 After the last displayed entry there is a 'Back to top' link that allows users to immediately return to the top of the page without having to scroll up again.
 
@@ -38,7 +38,7 @@ There will be maybe a calendar of sorts to see entries posted across the weeks/m
 
 ### Topics
 
-The third page will display as a series of collections of blog entries based on the key topics/areas I'll be writing about it - probably books/reading, tv shows/films, fanfic, writing.
+The third page will display as a series of collections of blog entries based on the key topics/areas I'll be writing about - probably books/reading, tv shows/films, fanfic, writing.
 
 ### Stats
 
@@ -51,6 +51,8 @@ Finally, there is an about page which will just be a brief overview of the blog,
 It could also include links to other places people can find me/my writing - like Tumblr, Goodreads, AO3 etc., and potentially contact information/a contact form too if I do that. (Or maybe that's better in the About the Author page?)
 
 ### Features to Add
+
+- Try and make the navbar sticky so the user doesn't have to scroll back up to it. Not sure if I can when it's part of the header though, unless I do a more complicated JavaScript way.
 
 - A calendar feature would be nice, to get an overview of how many entries were posted in each month/year etc. Not sure how easy/difficult this would be.
 
@@ -74,7 +76,7 @@ The site is hosted on [Google Firebase](https://firebase.google.com/). The live 
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (Node.js)
 
 ### Frameworks, Libraries, Programs, External Stylesheets etc
 
@@ -98,6 +100,8 @@ None... so far ;)
 [This post](https://stackoverflow.com/questions/1643320/get-month-name-from-date/18648314#18648314) helped to format my dates with the full month name, and [this one](https://www.w3resource.com/javascript-exercises/javascript-date-exercise-23.php) helped with adding ordinal suffixes to the day number.
 
 [This one](https://stackoverflow.com/questions/4820230/display-multiple-spaces-in-html) helped with adding multiple white spaces to HTML.
+
+These posts ([1](https://stackoverflow.com/questions/52580504/why-is-my-sticky-top-class-not-working-in-bootstrap-4), [2](https://stackoverflow.com/questions/53550603/how-can-i-make-an-element-sticky-relative-to-the-window-without-javascript-if-p)) helped with understanding why the sticky positioning wasn't working with my navbar (because it's relative to the parent element, i.e. the header when I want it to be relative to the overall page).
 
 ### Content and Media
 

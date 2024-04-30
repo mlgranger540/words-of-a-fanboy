@@ -130,7 +130,7 @@ h2 {
 
 .side-panel {
     padding: 2rem;
-    margin: 2.5rem;
+    margin: 0 2.5rem;
 }
 
 #side-panel-1{
@@ -199,16 +199,29 @@ hr {
 
 /* Sidebar */
 
-#sidebar {
-    background-color: #4b5292;
+/* #sidebar {
+    background-color: #3c4065;
+} */
+
+#profile-img {
+    width: 100%;
+    margin-bottom: 1.2rem;
 }
 
 .sidebar-text {
     color: #fff;
 }
 
+.sidebar-text h3 {
+    font-family: 'Diphylleia', cursive;
+    font-weight: 600;
+}
+
 .sidebar-text p {
-    margin-bottom: 0.4rem;
+    font-family: 'Noto Serif', 'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 0.8rem;
 }
 
 .side-list {
