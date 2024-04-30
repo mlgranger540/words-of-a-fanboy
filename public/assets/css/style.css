@@ -7,8 +7,10 @@
 }
 
 body {
+    background-color: #1d1f2f;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #414e5e;
+    color: #353851;
+    /* color: #31334a; */
     font-size: 1.05rem;
 }
 
@@ -21,8 +23,9 @@ ul {
 }
 
 a {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #414e5e;
+    font-family: 'Diphylleia', cursive;
+    color: #d85c6b;
+    font-weight: 600;
 }
 
 .row {
@@ -32,21 +35,27 @@ a {
 
 /* Header */
 
-#title {
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    padding-left: 2.4rem;
+#header {
+    position: relative;
+    width: 100%;
+    height: 22vw;
+    background: url(../images/llangennith.JPG) center center / cover no-repeat;
+    padding: 1.85rem 0rem;
 }
 
 h1 {
-    font-family: 'Patrick Hand', cursive;
-    font-size: 3.6rem;
+    font-family: 'Noto Serif', 'Times New Roman', Times, serif;
+    font-size: 3rem;
     text-align: right;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.2rem;
 }
 
 h2 {
+    font-family: 'Diphylleia', cursive;
     font-size: 1.2rem;
+    font-weight: 600;
+    color: #252639;
+    text-shadow: #9699b4 0px 0px 6px;
     text-align: right;
     text-transform: lowercase;
 }
@@ -54,45 +63,47 @@ h2 {
 
 /* Navbar */
 
-#nav-row {
-    /* background-color: #c2daf2; */
-    /* background-color: #c6ddf4; */
-    /* background-color: #c9e1f5; */
+#navbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(49,51,74,0.5);
     text-transform: lowercase;
 }
 
-.nav-tabs {
-    background-color: #c9e1f5;
-    --bs-nav-tabs-border-width: 0;
-    --bs-nav-tabs-border-radius: 0;
-    border-left: 2px solid #fff !important;
-    border-right: 2px solid #fff !important;
+#nav-tabs {
+    width: 60%;
+    margin: auto;
+    font-weight: 600;
+    border-bottom: none;
+}
+
+.nav-item {
+    background-color: rgba(111, 96, 150, 0.5);
+    margin: 0 0.6rem;
+    --bs-border-radius: 0.45rem;
+    border-top-left-radius: 0.45rem;
+    border-top-right-radius: 0.45rem;
 }
 
 .nav-link {
-    color: #39577c;
+    color: #d85c6b;
     font-size: 1.15rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    border-left: 2px solid #fff !important;
-    border-right: 2px solid #fff !important;
-    border-top: none !important;
-    border-bottom: none !important;
+    padding: 0.8rem 0.5rem;
+    border: none !important;
 }
 
 .nav-link:hover {
-    color: #f7fbff;
+    color: #f6ad68;
     text-decoration: underline;
-    /* --bs-nav-tabs-link-active-color: #e2eefd; */
-    --bs-nav-tabs-link-active-color: #e5f0fd;
+    --bs-nav-tabs-link-active-color: #f3c9a1;
 }
 
 .active {
-    --bs-nav-tabs-link-active-color: #39577c;
-    --bs-nav-tabs-link-active-bg: #a7c4ec;
-    --bs-nav-tabs-link-active-border-color: #fff;
+    --bs-nav-tabs-link-active-color: #353851;
+    /* --bs-nav-tabs-link-active-bg: #e79b4f; */
+    --bs-nav-tabs-link-active-bg: #d85c6b;
+    /* --bs-nav-tabs-link-active-border-color: #fff; */
 }
 
 
@@ -106,12 +117,12 @@ h2 {
 /* Panels */
 
 .panel {
-    background-color: #e1ebf4;
+    background-color: #f3c9a1;
     padding: 2.5rem 3rem;
 }
 
 .inner-panel {
-    background-color: #fff;
+    background-color: #f9f6ef;
     padding: 2.6rem;
 }
 
@@ -121,12 +132,12 @@ h2 {
 }
 
 #side-panel-1{
-    background-color: #527db1;
+    background-color: #685991;
     margin-bottom: 0;
 }
 
 #side-panel-2 {
-    background-color: #64c2e7;
+    background-color: #A05796;
     margin-top: 0;
 }
 
@@ -137,7 +148,7 @@ h3 {
 }
 
 h4 {
-    font-family: Diphylleia, serif;
+    font-family: 'Diphylleia', serif;
     font-weight: 600;
     font-size: 1.05rem;
     font-style: italic;
@@ -151,7 +162,7 @@ hr {
 }
 
 .separator {
-    background-color: #fff;
+    background-color: #f9f6ef;
 }
 
 .entry-date {
@@ -187,7 +198,7 @@ hr {
 /* Sidebar */
 
 #sidebar {
-    background-color: #88a9d7;
+    background-color: #4b5292;
     
 }
 
@@ -216,13 +227,12 @@ hr {
 /* Footer */
 
 #footer-row {
-    /* background-color: #c6daf4; */
-    background-color: #c9e1f5;
-    padding: 1.6rem 0 1.6rem 0;
+    background-color: #d04f55;
+    padding: 1.6rem 0;
 }
 
 h5 {
-    color: #39577c;
+    color: #353851;
     font-size: 1.05rem;
     padding-left: 1.8rem;
     padding-right: 1.8rem;
