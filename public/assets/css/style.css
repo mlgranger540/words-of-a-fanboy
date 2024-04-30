@@ -96,7 +96,7 @@ h2 {
 .nav-link:hover {
     color: #f6ad68;
     text-decoration: underline;
-    --bs-nav-tabs-link-active-color: #f3c9a1;
+    --bs-nav-tabs-link-active-color: #f7d7ad;
 }
 
 .active {
@@ -117,7 +117,9 @@ h2 {
 /* Panels */
 
 .panel {
-    background-color: #f3c9a1;
+    /* background-color: #f3c9a1; */
+    /* background-image: linear-gradient(to top, #f6ad68, #f5bc76, #f5cb87, #f6d999, #f7e6ad); */
+    background-image: linear-gradient(to bottom, #f28987, #f58f81, #f8967c, #f89d77, #f8a573, #f7ad74, #f6b477, #f4bc7a, #f4c584, #f4cd8e, #f4d599, #f5dda4);
     padding: 2.5rem 3rem;
 }
 
@@ -199,7 +201,6 @@ hr {
 
 #sidebar {
     background-color: #4b5292;
-    
 }
 
 .sidebar-text {

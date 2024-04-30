@@ -1,28 +1,44 @@
-# Not Suitable for Life Blog
+# In the Words of a Fanboy Blog
 
-Not Suitable for Life is a personal blog where I can share my thoughts and experiences around navigating a world where everything just is not designed for people like you. By which I mean, people with anxiety, introverts, highly sensitive people, people with any form of neurodivergence... When the world expects everyone to be everything you are not, it's a constant struggle just to make it through each day without having all the energy drained out of you.
+In the Words of a Fanboy is a personal blog where I can write about all things fandom, whether that's book/TV/movie reviews, discussing thoughts/feelings/theories/headcanons/general fanboying about something I'm watching/reading, or talking about my forever-love, fanfiction - fics I'm reading, or want to read, or writing; my favourite tropes, and so on. I will also talk about my own writing - what I'm currently working on and how that's going, or why it's not going if it isn't, what I want to be working on, any new ideas, as well as maybe sharing the odd snippet/good line.
 
-This blog hopes to both allow me the space and freedom to write about these things, because writing is often the best way for me to process and deal with my feelings - as well as hopefully offering a sense of companionship and compassion to anyone else who, like me, finds the world to be a too loud, too much, too difficult place. Perhaps even helping other lost souls to figure out why they have always felt out of step with the world. But also, hopefully, shining light on the perspective that it's not us that is wrong, it's just that the world isn't set up to accommodate people like us. And maybe that's something that needs to change.
+In short, this blog will be a place I can be my full fanboy self and talk about all the things I'm most passionate about. And if anyone else wants to read about those things, that's cool too ;)
 
 ## Design
 
-I visualised a couple different possible designs for the homepage using wireframes to help make a decision on the look of the site.
+The design for the website is mostly based on the design of my [Tumblr](https://www.tumblr.com/words-of-a-fanboy), which features one of my favourite photos I've ever taken of the sunset over Llangennith beach in South West Wales as the header/hero image. The colour palette is composed of colours from this photo - purples, reds, pinks, oranges and yellows - and is generally very warm, which helps promote a feeling of cosiness, like curling up with a book by the fire.
+
+I also created some wireframes to help map out the look of the site.
 
 <img alt="Home Wireframe V1" src="./readme-images/home-wireframe-v1.png" width="50%"><img alt="Home Wireframe V2" src="./readme-images/home-wireframe-v2.png" width="50%">
 
-I'm still somewhat torn but leaning more towards version 2. Though I'm planning to add some decoration to the corners of the page, as I like the minimalist mostly white design but also don't want to have too much blank space.
+As this is a book/writing-focused website I've chosen to use mostly serif fonts, as are typical in books, to reflect the literary atmosphere.
 
 ## Features
 
-### Recent
+### Header
 
-The homepage of the blog is the Recent page, which will display the most recently posted entries, newest first.
+The header of the website contains a hero image of a beach at sunset, overlayed by the website title and tag line.
+
+Along the bottom of the image is the navbar, which features links to all the main website pages. I may try and make this navbar sticky so that it follows the user as they scroll down the page.
+
+### Recent Page
+
+The landing page of the blog is the Recent page, which will display the most recently posted entries, newest first, in the left panel. These contain a post title, date, content, and tags, which help let the reader know what topics are covered in the post.
+
+On the right, there is a sidebar which will contain a brief author profile, which links to a full About the Author page. Underneath this there will be a quick nav panel which provides links to all the entries displayed on the recent page, to make it easier to jump between them. I may try and make this sidebar sticky as well.
+
+After the last displayed entry there is a 'Back to top' link that allows users to immediately return to the top of the page without having to scroll up again.
 
 ### All Posts
 
-The second page will contain all the entries posted to the blog, displayed in a compact way to make navigating easier (probably title, date and brief description).
+The second page will contain all the entries posted to the blog as a sort of archive, displayed in a compact way to make navigating easier (probably title, date and brief description/first few lines).
 
-There will ideally be a way to either filter entries or sort by categories/tags in order to find posts on particular topics, or show entries in a given time frame etc.
+There will be maybe a calendar of sorts to see entries posted across the weeks/months. There will probably also be a way to either filter entries or sort by categories/tags in order to find posts on particular topics, or show entries in a given time frame etc.
+
+### Topics
+
+The third page will display as a series of collections of blog entries based on the key topics/areas I'll be writing about it - probably books/reading, tv shows/films, fanfic, writing.
 
 ### Stats
 
@@ -30,19 +46,19 @@ Then of course I will have to have a stats page, because I'm a nerd and obsessed
 
 ### About
 
-Finally, an about page which will just be a brief overview of me and the blog.
+Finally, there is an about page which will just be a brief overview of the blog, such as when it was created, why I decided to create it/what its purpose is, and what kind of areas/topics it covers.
 
-Maybe that could include contact information too. But I may need to set up a new email for that, unless I just use one of my normal ones.
+It could also include links to other places people can find me/my writing - like Tumblr, Goodreads, AO3 etc., and potentially contact information/a contact form too if I do that. (Or maybe that's better in the About the Author page?)
 
 ### Features to Add
 
-It would be nice eventually to have a way for visitors to create an account, so that they could respond to blog posts with some form of like feature and leave comments, maybe bookmark their favourite articles etc.
+- A calendar feature would be nice, to get an overview of how many entries were posted in each month/year etc. Not sure how easy/difficult this would be.
 
-A calendar feature would be nice as well, to get an overview of how many entries were posted in each month/year etc.
+- It would be nice eventually to have a way for visitors to create an account, so that they could respond to blog posts with some form of like feature and leave comments, maybe bookmark their favourite posts etc. But that would require more of an actual database to be built of course.
 
-Probably a contact form too so people can easily send in questions/messages/articles they'd like to see etc.
+- Probably a contact form too so people can easily send in questions/messages/articles they'd like to see etc. But I may need to set up a new email for that, unless I just use one of my normal ones.
 
-Also eventually it would be good to have a 'sign up for updates' feature where people could then get emails when I post.
+- Also eventually it would be good to have a 'sign up for updates' feature where people could then get emails when I post.
 
 ## Content Management System
 
@@ -58,6 +74,7 @@ The site is hosted on [Google Firebase](https://firebase.google.com/). The live 
 
 - HTML5
 - CSS3
+- JavaScript
 
 ### Frameworks, Libraries, Programs, External Stylesheets etc
 
@@ -65,7 +82,7 @@ The site is hosted on [Google Firebase](https://firebase.google.com/). The live 
 - [GitHub](https://github.com/) to store the project repository and back up git commits
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in the structure and design of the site
 - [Prismic Headless CMS](https://prismic.io/) to manage my blog content
-- [Google Fonts](https://fonts.google.com/) for the blog title and date fonts
+- [Google Fonts](https://fonts.google.com/) for the blog headings, links and date fonts
 - [Justinmind](https://www.justinmind.com/) to create the wireframes
 
 ## Known Bugs
@@ -84,6 +101,8 @@ None... so far ;)
 
 ### Content and Media
 
-All written content on the website was created by myself.
+All written content on the website and in the blog posts was created by myself.
 
-The Google Font [Patrick Hand](https://fonts.google.com/specimen/Patrick+Hand) was used for the title, and [Diphylleia](https://fonts.google.com/specimen/Diphylleia) for the blog entry dates.
+The hero image was taken by me.
+
+The Google Font [Noto Serif](https://fonts.google.com/specimen/Noto+Serif) was used for the title, and [Diphylleia](https://fonts.google.com/specimen/Diphylleia) for the sub-heading, links, and blog entry dates.
