@@ -64,8 +64,6 @@ h2 {
 /* Navbar */
 
 #navbar {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: rgba(49,51,74,0.5);
     text-transform: lowercase;
@@ -104,6 +102,21 @@ h2 {
     /* --bs-nav-tabs-link-active-bg: #e79b4f; */
     --bs-nav-tabs-link-active-bg: #d85c6b;
     /* --bs-nav-tabs-link-active-border-color: #fff; */
+}
+
+.absolute {
+    position: absolute;
+    bottom: 0;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+.sticky-2 {
+    position: sticky;
+    top: 3.25rem;
 }
 
 

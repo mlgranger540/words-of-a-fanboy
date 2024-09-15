@@ -89,7 +89,7 @@ The site is hosted on [Google Firebase](https://firebase.google.com/). The live 
 
 ## Known Bugs
 
-None... so far ;)
+If you change the screen size after loading in the page without refreshing, the sticky navbar will become sticky at the wrong scroll position because the offsetTop value doesn't change accordingly.
 
 ## Credits
 
@@ -101,7 +101,7 @@ None... so far ;)
 
 [This one](https://stackoverflow.com/questions/4820230/display-multiple-spaces-in-html) helped with adding multiple white spaces to HTML.
 
-These posts ([1](https://stackoverflow.com/questions/52580504/why-is-my-sticky-top-class-not-working-in-bootstrap-4), [2](https://stackoverflow.com/questions/53550603/how-can-i-make-an-element-sticky-relative-to-the-window-without-javascript-if-p)) helped with understanding why the sticky positioning wasn't working with my navbar (because it's relative to the parent element, i.e. the header when I want it to be relative to the overall page).
+These posts ([1](https://stackoverflow.com/questions/52580504/why-is-my-sticky-top-class-not-working-in-bootstrap-4), [2](https://stackoverflow.com/questions/53550603/how-can-i-make-an-element-sticky-relative-to-the-window-without-javascript-if-p)) helped with understanding why the sticky positioning wasn't working with my navbar (because it's relative to the parent element, i.e. the header when I want it to be relative to the overall page). I then used these references ([1](https://www.w3schools.com/howto/howto_js_navbar_sticky.asp), [2](https://w3collective.com/sticky-navbar/)) to help creating my sticky navbar using JavaScript. (And [this post](https://stackoverflow.com/questions/77380098/window-pageyoffset-is-deprecated-what-is-the-replacement) helped when the property used by W3Schools ([pageYOffset](https://www.w3schools.com/Jsref/prop_win_pageyoffset.asp)) came up in VS Code as being deprecated - the replacement being [scrollY](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY).)
 
 ### Content and Media
 

@@ -78,6 +78,24 @@ window.onload = async function(){
         articleDiv.innerHTML = article;
         quickNav.innerHTML = quickNavLinks;
     });
+
+    var navbar = document.getElementById("navbar");
+    var sidebar = document.getElementById("sidebar-panel");
+    var offsetTop = navbar.offsetTop;
+    
+    function stick(){
+        if (window.scrollY >= offsetTop) {
+            navbar.classList.remove("absolute");
+            navbar.classList.add("sticky");
+            sidebar.classList.add("sticky-2");
+        } else {
+            navbar.classList.remove("sticky");
+            sidebar.classList.remove("sticky-2");
+            navbar.classList.add("absolute");
+        }
+    }
+
+    window.addEventListener("scroll", stick);
 };
 
 function ordinalSuffix(day){
@@ -91,3 +109,5 @@ function ordinalSuffix(day){
         return day + 'th';
     }
 }
+
+
