@@ -65,8 +65,9 @@ h2 {
 
 #navbar {
     width: 100%;
-    background-color: rgba(49,51,74,0.5);
+    background-color: rgba(49, 51, 74, 0.5);
     text-transform: lowercase;
+    z-index: 5;
 }
 
 #nav-tabs {
@@ -133,7 +134,7 @@ h2 {
     /* background-color: #f3c9a1; */
     /* background-image: linear-gradient(to top, #f6ad68, #f5bc76, #f5cb87, #f6d999, #f7e6ad); */
     background-image: linear-gradient(to bottom, #f28987, #f58f81, #f8967c, #f89d77, #f8a573, #f7ad74, #f6b477, #f4bc7a, #f4c584, #f4cd8e, #f4d599, #f5dda4);
-    padding: 2.5rem 3rem;
+    padding: 2.6rem;
 }
 
 .inner-panel {
@@ -143,7 +144,7 @@ h2 {
 
 .side-panel {
     padding: 2rem;
-    margin: 0 2.5rem;
+    margin: 0 2rem;
 }
 
 #side-panel-1{
