@@ -79,10 +79,13 @@ window.onload = async function(){
         quickNav.innerHTML = quickNavLinks;
     });
 
+    // Sticky navbar
     var navbar = document.getElementById("navbar");
     var sidebar = document.getElementById("sidebar-panel");
     var offsetTop = navbar.offsetTop;
     
+    // When scrolling past navbar, add sticky class and remove transparency
+    // When scrolling back up, remove sticky class and add transparency
     function stick(){
         if (window.scrollY >= offsetTop) {
             navbar.classList.remove("absolute");
@@ -98,8 +101,24 @@ window.onload = async function(){
     }
 
     window.addEventListener("scroll", stick);
+
+    // Add current year to copyright line
+    var year = new Date().getFullYear();
+    document.getElementById("year").innerHTML = year;
 };
 
+// If collapsed navbar content is visible, make it not visible on click
+// If it's not visible, make it visible
+function openNav(){
+    var collapsedNavbar = document.getElementById("collapsed-content");
+    if (collapsedNavbar.style.display === "block") {
+        collapsedNavbar.style.display = "none";
+    } else {
+        collapsedNavbar.style.display = "block";
+    }
+};
+
+// Add ordinal suffixes to numbers in date
 function ordinalSuffix(day){
     if (day % 10 == 1 && day != 11){
         return day + 'st';

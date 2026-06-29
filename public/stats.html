@@ -18,7 +18,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <!-- Script -->
     <script src="assets/js/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/22fc12a701.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -58,6 +60,27 @@
                 <!-- <div class="col-xl-3 col-lg-2 col-md-1 col-3"></div> -->
             </div>
         </nav>
+        <!-- Collapsible Navbar -->
+        <button type="button" class="collapsible absolute" onclick="openNav()"><i class="fa-solid fa-bars-staggered"></i></button>
+        <div id="collapsed-content">
+            <ul id="collapsed-navbar">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index">Recent</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./all-posts">All Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./topics">Topics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./stats">Stats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about">About</a>
+                </li>
+            </ul>
+        </div>
     </header>
     
     <!-- Main Section -->
@@ -108,7 +131,7 @@
         <div id="footer-row" class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <h5>©2024 Matt Lloyd Granger</h5>
+                <h5>©<span id="year"></span> Matt Lloyd Granger</h5>
             </div>
             <div class="col-2"></div>
         </div>
