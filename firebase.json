@@ -1,27 +1,41 @@
 {
-  "hosting": {
-    "public": "public",
-    "cleanUrls": true,
-    "rewrites":[{
-      "source":"**",
-      "function":"woaf_app"
-    }],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "hosting": {
+        "public": "public",
+        "cleanUrls": true,
+        "rewrites": [
+            {
+                "source": "/post/**",
+                "destination": "/post.html"
+            },
+            {
+                "source": "/getPost/**",
+                "function": "woaf_app"
+            },
+            {
+                "source": "/getPosts",
+                "function": "woaf_app"
+            },
+            {
+                "source":"**",
+                "function": "woaf_app"
+            }
+        ],
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    },
+    "functions": [
+        {
+            "source": "functions",
+            "codebase": "default",
+            "ignore": [
+                "node_modules",
+                ".git",
+                "firebase-debug.log",
+                "firebase-debug.*.log"
+            ]
+        }
     ]
-  },
-  "functions": [
-    {
-      "source": "functions",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
-      ]
-    }
-  ]
 }

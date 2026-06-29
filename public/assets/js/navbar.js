@@ -24,7 +24,7 @@ window.onload = async function(){
 
     // Add current year to copyright line
     var year = new Date().getFullYear();
-    document.getElementById("year").innerHTML = year;
+    document.getElementById("year").innerHTML = year + " ";
 };
 
 // If collapsed navbar content is visible, make it not visible on click

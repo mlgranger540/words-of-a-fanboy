@@ -22,7 +22,7 @@ const accessToken = '' // If your repository is private, add an access token.
 // project.
 const routes = [
     {
-        type: 'blog_post',
+        type: 'post',
         path: '/:uid',
     },
 ]
@@ -43,12 +43,21 @@ app.use((req, res, next) => {
         prismic,
     };
     next();
-  });
+});
 
-app.get("/getBlogPosts", async (req, res)=>{
-    const documents = await client.getAllByType("blog_post");
-    console.log(documents)
+app.get("/post/:uid", (req, res) => {
+    res.sendFile("post.html", {root : __dirname + "/../public/"});
+});
+
+// GET Routes for Prismic Data
+app.get("/getPosts", async (req, res) => {
+    const documents = await client.getAllByType("post");
     res.send(documents);
+});
+
+app.get("/getPost/post/:uid", async (req, res) => {
+    const document = await client.getByUID("post", req.params.uid);
+    res.send(document);
 });
 
 exports.woaf_app = functions.https.onRequest(app);

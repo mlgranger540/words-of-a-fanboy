@@ -1,14 +1,16 @@
 window.onload = async function(){
-    const postsData = await fetch("/getBlogPosts").then(function(response) {
+    const postsData = await fetch("/getPosts").then(function(response) {
         // The response is a Response instance.
         // You parse the data into a useable format using `.json()`
         return response.json();
     }).then(function(res) {
-        // Loop through blog post data from Prismic and add to blog post object
-        // then add object to blog posts array
-        let blogPosts = [];
+        // Sort responses by post number (largest i.e. newest first)
+        res.sort((a,b)=>{return b.data.number-a.data.number});
+        // Loop through blog post data from Prismic and add to post object
+        // then add object to posts array
+        let posts = [];
         res.forEach((blog) => {
-            let blogPost = {};
+            let post = {};
             let id = blog.uid;
             let title = blog.data.title;
             let rawDate = new Date(blog.data.date_created);
@@ -19,12 +21,12 @@ window.onload = async function(){
             let dateCreated = day + " " + month + " " + year;
             let content = blog.data.content;
             let tags = blog.data.tags.split(',');
-            blogPost.id = id;
-            blogPost.title = title;
-            blogPost.dateCreated = dateCreated;
-            blogPost.content = content;
-            blogPost.tags = tags;
-            blogPosts.push(blogPost);
+            post.id = id;
+            post.title = title;
+            post.dateCreated = dateCreated;
+            post.content = content;
+            post.tags = tags;
+            posts.push(post);
         });
         
         // Add blog posts to article section
@@ -32,14 +34,14 @@ window.onload = async function(){
         let quickNav = document.getElementById("quick-nav");
         let article = '';
         let quickNavLinks = '';
-        blogPosts.forEach((blog) => {
+        posts.forEach((blog) => {
             let id = blog.id;
             // Loop through title objects
             let titleObjs = blog.title;
-            let titles = [];
-            titleObjs.forEach((title) => {
-                title = title.text;
-                titles.push(title);
+            let title = [];
+            titleObjs.forEach((ttl) => {
+                ttl = ttl.text;
+                title.push(ttl);
             });
             // Loop through content objects
             let contentObjs = blog.content;
@@ -59,11 +61,15 @@ window.onload = async function(){
 
             // Add data to article HTML
             article += '<article id="' + id + '" class="inner-panel">';
-            article += '<h3>' + titles + '</h3>';
+            article += '<h3><a class="post-title-link" href="/post/' + id + '">' + title + '</a></h3>';
             article += '<h4 class="entry-date">' + dateCreated + '</h4>';
-            paragraphs.forEach((paragraph) => {
-                article += '<p>' + paragraph + '</p>';
-            })
+            // Loop through paragraphs and add first four
+            for (let i = 0; i < 4; i++) {
+                article += '<p>' + paragraphs[i] + '</p>';
+            };
+            article += '<p class="tbc-dots">...</p>'
+            article += '</div>';
+            article += '<p class="read-more"><a class="read-more-link" href="/post/' + id + '">Read More</a></p>';
             article += '<p class="tag">';
             hashtags.forEach((tag) => {
                 article += tag + '&nbsp;&nbsp;';
@@ -73,7 +79,7 @@ window.onload = async function(){
             article += '<div class="separator"><hr></div>';
 
             // Create quick nav links
-            quickNavLinks += '<li><a href="#' + id + '">' + titles + '</a></li>';
+            quickNavLinks += '<li><a href="#' + id + '">' + title + '</a></li>';
         });
         articleDiv.innerHTML = article;
         quickNav.innerHTML = quickNavLinks;
@@ -104,7 +110,7 @@ window.onload = async function(){
 
     // Add current year to copyright line
     var year = new Date().getFullYear();
-    document.getElementById("year").innerHTML = year;
+    document.getElementById("year").innerHTML = year + " ";
 };
 
 // If collapsed navbar content is visible, make it not visible on click
