@@ -1,11 +1,9 @@
 window.onload = async function(){
-    const postsData = await fetch("/getPosts").then(function(response) {
+    const postsData = await fetch("/getRecentPosts").then(function(response) {
         // The response is a Response instance.
         // You parse the data into a useable format using `.json()`
         return response.json();
     }).then(function(res) {
-        // Sort responses by post number (largest i.e. newest first)
-        res.sort((a,b)=>{return b.data.number-a.data.number});
         // Loop through blog post data from Prismic and add to post object
         // then add object to posts array
         let posts = [];
@@ -13,19 +11,30 @@ window.onload = async function(){
             let post = {};
             let id = blog.uid;
             let title = blog.data.title;
-            let rawDate = new Date(blog.data.date_created);
+            let rawDate = new Date(blog.data.date_written);
             let dayNum = rawDate.getDate();
             let day = ordinalSuffix(dayNum);
             let month = rawDate.toLocaleString('default', { month: 'long' });
             let year = rawDate.getFullYear();
-            let dateCreated = day + " " + month + " " + year;
+            let dateWritten = day + " " + month + " " + year;
+            let rawDateEd = new Date(blog.data.date_edited);
+            let dayEdNum = rawDateEd.getDate();
+            let dayEd = ordinalSuffix(dayEdNum);
+            let monthEd = rawDateEd.toLocaleString('default', { month: 'short' });
+            let yearEd = rawDateEd.getFullYear();
+            let dateEdited = dayEd + " " + monthEd + " " + yearEd;
+            let type = blog.data.type;
+            let topics = blog.data.topics;
+            let fandoms = blog.data.fandoms;
             let content = blog.data.content;
-            let tags = blog.data.tags.split(',');
             post.id = id;
             post.title = title;
-            post.dateCreated = dateCreated;
+            post.dateWritten = dateWritten;
+            post.dateEdited = dateEdited;
+            post.type = type;
+            post.topics = topics;
+            post.fandoms = fandoms;
             post.content = content;
-            post.tags = tags;
             posts.push(post);
         });
         
@@ -43,6 +52,9 @@ window.onload = async function(){
                 ttl = ttl.text;
                 title.push(ttl);
             });
+            let type = blog.type;
+            let dateWritten = blog.dateWritten;
+            let dateEdited = blog.dateEdited;
             // Loop through content objects
             let contentObjs = blog.content;
             let paragraphs = [];
@@ -50,29 +62,38 @@ window.onload = async function(){
                 paragraph = paragraph.text;
                 paragraphs.push(paragraph);
             });
-            let dateCreated = blog.dateCreated;
-            // Loop through tags and add hash
-            let tags = blog.tags;
             let hashtags = [];
-            tags.forEach((tag) => {
-                tag = '#' + tag;
-                hashtags.push(tag);
+            // Loop through fandom objects - if there's a fandom, add hash and add to hashtags
+            let fandoms = blog.fandoms;
+            fandoms.forEach((fandom) => {
+                if (fandom.fandom != 'No Fandom') {
+                    fandom = fandom.fandom;
+                    fandom = '#' + fandom;
+                    hashtags.push(fandom);
+                }
+            })
+            // Loop through topics, add hash and add to hashtags
+            let topics = blog.topics;
+            topics.forEach((topic) => {
+                topic = topic.topic;
+                topic = '#' + topic;
+                hashtags.push(topic);
             })
 
             // Add data to article HTML
-            article += '<article id="' + id + '" class="inner-panel">';
-            article += '<h3><a class="post-title-link" href="/post/' + id + '">' + title + '</a></h3>';
-            article += '<h4 class="entry-date">' + dateCreated + '</h4>';
+            article += `<article id="${id}" class="inner-panel">`;
+            article += `<h3><a class="post-title-link" href="/post/${id}">${title}</a></h3>`;
+            article += `<h4>${type}&ensp;|&ensp;<span class="entry-date">${dateWritten}</span></h4>`;
             // Loop through paragraphs and add first four
             for (let i = 0; i < 4; i++) {
-                article += '<p>' + paragraphs[i] + '</p>';
+                article += `<p>${paragraphs[i]}</p>`;
             };
             article += '<p class="tbc-dots">...</p>'
             article += '</div>';
-            article += '<p class="read-more"><a class="read-more-link" href="/post/' + id + '">Read More</a></p>';
+            article += `<p class="read-more"><a class="read-more-link" href="/post/${id}">Read More</a></p>`;
             article += '<p class="tag">';
             hashtags.forEach((tag) => {
-                article += tag + '&nbsp;&nbsp;';
+                article += `${tag}&nbsp;&nbsp;`;
             })
             article += '</p>';
             article += '</article>';

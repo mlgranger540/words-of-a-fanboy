@@ -50,8 +50,14 @@ app.get("/post/:uid", (req, res) => {
 });
 
 // GET Routes for Prismic Data
-app.get("/getPosts", async (req, res) => {
-    const documents = await client.getAllByType("post");
+// Get all posts sorted by date written (newest first), then title (reverse alphabetical)
+app.get("/getRecentPosts", async (req, res) => {
+    const documents = await client.getAllByType("post", {
+        orderings: [
+            {field: "my.post.date_written", direction: "desc"},
+            {field: "my.post.title", direction: "desc"}
+        ]
+    });
     res.send(documents);
 });
 

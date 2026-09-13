@@ -197,10 +197,10 @@ h3 {
 }
 
 h4 {
+    margin-bottom: 1.2rem;
     font-family: 'Diphylleia', serif;
     font-weight: 600;
     font-size: 1.05rem;
-    font-style: italic;
 }
 
 hr {
@@ -215,7 +215,7 @@ hr {
 }
 
 .entry-date {
-    margin-bottom: 1.2rem;
+    font-style: italic;
 }
 
 .read-more {
@@ -230,6 +230,7 @@ hr {
     color: #71849b;
     font-size: 89%;
     font-style: italic;
+    text-transform: lowercase;
     letter-spacing: 0.05rem;
     margin-top: 1.25rem;
     margin-bottom: 0;

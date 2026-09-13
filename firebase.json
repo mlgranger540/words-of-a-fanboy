@@ -12,7 +12,7 @@
                 "function": "woaf_app"
             },
             {
-                "source": "/getPosts",
+                "source": "/getRecentPosts",
                 "function": "woaf_app"
             },
             {
