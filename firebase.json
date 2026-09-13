@@ -16,7 +16,7 @@
                 "function": "woaf_app"
             },
             {
-                "source":"**",
+                "source": "**",
                 "function": "woaf_app"
             }
         ],
