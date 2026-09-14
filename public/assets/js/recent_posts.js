@@ -36,7 +36,7 @@ window.onload = async function(){
             post.fandoms = fandoms;
             post.content = content;
             posts.push(post);
-        });
+        })
         
         // Add blog posts to article section
         let articleDiv = document.getElementById("article-div");
@@ -110,7 +110,7 @@ window.onload = async function(){
         });
         articleDiv.innerHTML = article;
         quickNav.innerHTML = quickNavLinks;
-    });
+    })
 
     // Sticky navbar
     var navbar = document.getElementById("navbar");
@@ -138,7 +138,7 @@ window.onload = async function(){
     // Add current year to copyright line
     var year = new Date().getFullYear();
     document.getElementById("year").innerHTML = year + " ";
-};
+}
 
 // If collapsed navbar content is visible, make it not visible on click
 // If it's not visible, make it visible
@@ -149,7 +149,7 @@ function openNav(){
     } else {
         collapsedNavbar.style.display = "block";
     }
-};
+}
 
 // Add ordinal suffixes to numbers in date
 function ordinalSuffix(day){
@@ -162,4 +162,4 @@ function ordinalSuffix(day){
     } else {
         return day + 'th';
     }
-};
+}
