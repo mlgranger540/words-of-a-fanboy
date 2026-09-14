@@ -45,7 +45,7 @@ window.onload = async function(){
         let quickNavLinks = '';
         posts.forEach((blog) => {
             let id = blog.id;
-            // Loop through title objects
+            // Loop through title objects and push to title array
             let titleObjs = blog.title;
             let title = [];
             titleObjs.forEach((ttl) => {
@@ -55,7 +55,7 @@ window.onload = async function(){
             let type = blog.type;
             let dateWritten = blog.dateWritten;
             let dateEdited = blog.dateEdited;
-            // Loop through content objects
+            // Loop through content objects and push to paragraphs array
             let contentObjs = blog.content;
             let paragraphs = [];
             contentObjs.forEach((paragraph) => {
@@ -63,16 +63,18 @@ window.onload = async function(){
                 paragraphs.push(paragraph);
             });
             let hashtags = [];
-            // Loop through fandom objects - if there's a fandom, add hash and add to hashtags
+            // Loop through fandom objects - if there's a fandom, add hash and push to hashtags array
             let fandoms = blog.fandoms;
             fandoms.forEach((fandom) => {
-                if (fandom.fandom != 'No Fandom') {
+                if (fandom.fandom !== 'No Fandom') {
                     fandom = fandom.fandom;
                     fandom = '#' + fandom;
-                    hashtags.push(fandom);
+                    if (!hashtags.includes(fandom)) {
+                        hashtags.push(fandom);
+                    }
                 }
             })
-            // Loop through topics, add hash and add to hashtags
+            // Loop through topics, add hash and push to hashtags array
             let topics = blog.topics;
             topics.forEach((topic) => {
                 topic = topic.topic;
@@ -86,9 +88,13 @@ window.onload = async function(){
             article += `<h4>${type}&ensp;|&ensp;<span class="entry-date">${dateWritten}</span></h4>`;
             // Loop through paragraphs and add first four
             for (let i = 0; i < 4; i++) {
-                article += `<p>${paragraphs[i]}</p>`;
+                if (paragraphs[i] === undefined) {
+                    break;
+                } else {
+                    article += `<p>${paragraphs[i]}</p>`;
+                }
             };
-            article += '<p class="tbc-dots">...</p>'
+            article += '<p class="tbc-dots">...</p>';
             article += '</div>';
             article += `<p class="read-more"><a class="read-more-link" href="/post/${id}">Read More</a></p>`;
             article += '<p class="tag">';
