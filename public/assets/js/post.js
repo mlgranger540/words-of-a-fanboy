@@ -69,7 +69,7 @@ window.onload = async function(){
         })
 
         // Add data to article HTML
-        article += `<article id="${id}" class="inner-panel">`;
+        article += `<article id="${id}" class="inner-panel-clear col-lg-10 col-12">`;
         article += `<h3><a class="post-title-link" href="/post/${id}">${title}</a></h3>`;
         article += `<h4><span class="entry-date">${dateWritten}</span></h4>`;
         article += `<h4>${type}`;
@@ -103,7 +103,6 @@ window.onload = async function(){
             }
         }
         article += `</h4>`;
-        // article += `<h4>${seriesNo} ${sectionNo}</h4>`;
         paragraphs.forEach((paragraph) => {
             article += `<p>${paragraph}</p>`;
         })
@@ -113,7 +112,7 @@ window.onload = async function(){
         })
         article += '</p>';
         article += '</article>';
-        articleDiv.innerHTML = article;
+        articleDiv.innerHTML = `<div id="post-background" class="row">${article}</div>`;
     })
 
     // Add current year to copyright line

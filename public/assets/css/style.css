@@ -159,11 +159,16 @@ h2 {
     /* background-color: #f3c9a1; */
     /* background-image: linear-gradient(to top, #f6ad68, #f5bc76, #f5cb87, #f6d999, #f7e6ad); */
     background-image: linear-gradient(to bottom, #f28987, #f58f81, #f8967c, #f89d77, #f8a573, #f7ad74, #f6b477, #f4bc7a, #f4c584, #f4cd8e, #f4d599, #f5dda4);
-    padding: 2.6rem;
+    padding: 2.2rem;
 }
 
 .inner-panel {
     background-color: #f9f6ef;
+    padding: 2.6rem;
+}
+
+.inner-panel-clear {
+    background-color: rgba(249, 246, 239, 0.90);
     padding: 2.6rem;
 }
 
@@ -236,21 +241,9 @@ hr {
     margin-bottom: 0;
 }
 
-#back-to-top {
-    display: block;
-    font-size: 1.15rem;
-    font-style: italic;
-    text-align: center;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-}
-
-.top-link {
-    text-decoration: none;
-}
-
-.top-link:hover {
-    text-decoration: underline;
+#post-background {
+    background-image: url("../images/llangennith-sand.JPG");
+    background-size: cover;
 }
 
 /* Sidebar */
@@ -293,6 +286,25 @@ hr {
     text-decoration: underline;
 }
 
+
+/* Back to Top */
+
+#back-to-top {
+    display: block;
+    font-size: 1.15rem;
+    font-style: italic;
+    text-align: center;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.top-link {
+    text-decoration: none;
+}
+
+.top-link:hover {
+    text-decoration: underline;
+}
 
 /* Footer */
 
@@ -339,8 +351,8 @@ h5 {
         padding: 2rem;
     }
 
-    .inner-panel {
-        padding: 2.4rem;
+    .inner-panel, .inner-panel-clear {
+        padding: 2.3rem;
     }
 }
 
@@ -390,15 +402,15 @@ h5 {
     }
 
     .panel {
-        padding: 1.8rem;
+        padding: 1.6rem;
     }
 
-    .inner-panel {
-        padding: 1.8rem;
+    .inner-panel, .inner-panel-clear {
+        padding: 1.6rem;
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     .entry-date {
