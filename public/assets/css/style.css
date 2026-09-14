@@ -148,6 +148,21 @@ h2 {
 
 /* Main Section */
 
+.page-title {
+    margin-bottom: 1.2rem;
+    text-align: center;
+    font-family: 'Diphylleia', cursive;
+    color: #d85c6b;
+    font-weight: 600;
+}
+
+.section-title {
+    font-family: 'Diphylleia', cursive;
+    color: #d85c6b;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
 #content-row {
     margin-left: 3rem;
     margin-right: 3rem;
@@ -284,6 +299,26 @@ hr {
 
 .side-list a:hover {
     text-decoration: underline;
+}
+
+/* Topic Boxes */
+
+.fandom-box {
+    height: 9rem;
+    /* display: grid; */
+    /* align-items: center; */
+    padding: 2rem;
+    background-color: #f28987;
+}
+
+.fandom-name {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Noto Serif', 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: #1d1f2f 2px 2px 5px;
+    background-color: rgba(29, 31, 47, 0.7);
 }
 
 

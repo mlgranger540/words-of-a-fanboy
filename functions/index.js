@@ -61,6 +61,16 @@ app.get("/getRecentPosts", async (req, res) => {
     res.send(documents);
 });
 
+// Get all posts with fandoms
+app.get("/getPostsWithFandoms", async (req, res) => {
+    const documents = await client.getAllByType("post", {
+        filters: [
+            prismic.filter.not("my.post.fandoms.fandom_name", "No Fandom"),
+        ]
+    });
+    res.send(documents);
+});
+
 app.get("/getPost/post/:uid", async (req, res) => {
     const document = await client.getByUID("post", req.params.uid);
     res.send(document);

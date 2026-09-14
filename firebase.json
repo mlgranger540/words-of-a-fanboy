@@ -16,6 +16,10 @@
                 "function": "woaf_app"
             },
             {
+                "source": "/getPostsWithFandoms",
+                "function": "woaf_app"
+            },
+            {
                 "source": "**",
                 "function": "woaf_app"
             }

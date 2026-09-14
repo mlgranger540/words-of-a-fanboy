@@ -66,8 +66,8 @@ window.onload = async function(){
             // Loop through fandom objects - if there's a fandom, add hash and push to hashtags array
             let fandoms = blog.fandoms;
             fandoms.forEach((fandom) => {
-                if (fandom.fandom !== 'No Fandom') {
-                    fandom = fandom.fandom;
+                if (fandom.fandom_name !== 'No Fandom') {
+                    fandom = fandom.fandom_name;
                     fandom = '#' + fandom;
                     if (!hashtags.includes(fandom)) {
                         hashtags.push(fandom);
@@ -107,7 +107,7 @@ window.onload = async function(){
 
             // Create quick nav links
             quickNavLinks += '<li><a href="#' + id + '">' + title + '</a></li>';
-        });
+        })
         articleDiv.innerHTML = article;
         quickNav.innerHTML = quickNavLinks;
     })
