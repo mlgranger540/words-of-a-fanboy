@@ -157,6 +157,7 @@ h2 {
 }
 
 .section-title {
+    margin: 1rem 0;
     font-family: 'Diphylleia', cursive;
     color: #d85c6b;
     font-weight: 600;
@@ -303,7 +304,7 @@ hr {
 
 /* Topic Boxes */
 
-.fandom-box {
+.topic-box {
     height: 9rem;
     display: grid;
     align-items: center;
@@ -311,7 +312,7 @@ hr {
     background-color: #f28987;
 }
 
-.fandom-name {
+.topic-name {
     text-align: center;
     text-transform: uppercase;
     font-family: 'Noto Serif', 'Times New Roman', Times, serif;
@@ -322,7 +323,7 @@ hr {
     background-color: rgba(29, 31, 47, 0.7);
 }
 
-.fandom-link {
+.topic-link {
     text-decoration: none;
 }
 

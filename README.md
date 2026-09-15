@@ -107,6 +107,8 @@ These posts ([1](https://stackoverflow.com/questions/52580504/why-is-my-sticky-t
 
 [This post](https://stackoverflow.com/questions/4758103/last-segment-of-url-with-javascript) helped when trying to get the last part of a URL in JavaScript.
 
+[This one](https://stackoverflow.com/questions/3794919/replace-all-spaces-in-a-string-with) helped to get `replace()` to replace all instances not just the first one, as apparently JavaScript doesn't do that by default.
+
 ### Content and Media
 
 All written content on the website and in the blog posts was created by myself.

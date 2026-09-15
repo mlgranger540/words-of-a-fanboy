@@ -56,22 +56,22 @@ app.get("/fandom/:fandom_id", (req, res) => {
 });
 
 // GET Routes for Prismic Data
+// Get all posts sorted by post type
+app.get("/getAllPosts", async (req, res) => {
+    const documents = await client.getAllByType("post", {
+        orderings: [
+            {field: "my.post.type", direction: "asc"}
+        ]
+    });
+    res.send(documents);
+});
+
 // Get all posts sorted by date written (newest first), then title (reverse alphabetical)
 app.get("/getRecentPosts", async (req, res) => {
     const documents = await client.getAllByType("post", {
         orderings: [
             {field: "my.post.date_written", direction: "desc"},
             {field: "my.post.title", direction: "desc"}
-        ]
-    });
-    res.send(documents);
-});
-
-// Get all posts with fandoms
-app.get("/getPostsWithFandoms", async (req, res) => {
-    const documents = await client.getAllByType("post", {
-        filters: [
-            prismic.filter.not("my.post.fandoms.fandom_name", "No Fandom"),
         ]
     });
     res.send(documents);
