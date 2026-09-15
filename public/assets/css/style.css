@@ -389,6 +389,18 @@ h5 {
     .inner-panel, .inner-panel-clear {
         padding: 2.3rem;
     }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .fandom-name {
+        font-size: 1.25rem;
+    }
 }
 
 @media only screen and (max-width: 426px) {
