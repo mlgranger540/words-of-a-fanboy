@@ -8,6 +8,10 @@
                 "destination": "/post.html"
             },
             {
+                "source": "/fandom/**",
+                "destination": "/posts-by-fandom.html"
+            },
+            {
                 "source": "/getPost/**",
                 "function": "woaf_app"
             },
@@ -17,6 +21,10 @@
             },
             {
                 "source": "/getPostsWithFandoms",
+                "function": "woaf_app"
+            },
+            {
+                "source": "/getPostsByFandom/**",
                 "function": "woaf_app"
             },
             {

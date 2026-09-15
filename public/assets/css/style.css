@@ -305,8 +305,8 @@ hr {
 
 .fandom-box {
     height: 9rem;
-    /* display: grid; */
-    /* align-items: center; */
+    display: grid;
+    align-items: center;
     padding: 2rem;
     background-color: #f28987;
 }
@@ -316,9 +316,14 @@ hr {
     text-transform: uppercase;
     font-family: 'Noto Serif', 'Times New Roman', Times, serif;
     font-size: 1.5rem;
+    font-weight: 300;
     color: #fff;
     text-shadow: #1d1f2f 2px 2px 5px;
     background-color: rgba(29, 31, 47, 0.7);
+}
+
+.fandom-link {
+    text-decoration: none;
 }
 
 

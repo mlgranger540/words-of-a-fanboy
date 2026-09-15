@@ -10,8 +10,10 @@ window.onload = async function(){
             let rawFandoms = blog.data.fandoms;
             rawFandoms.forEach((fandom) => {
                 let fandomObj = {};
+                let fandomID = fandom.fandom_id;
                 let fandomName = fandom.fandom_name;
                 let fandomImageSrc = fandom.fandom_image.url;
+                fandomObj.fandomID = fandomID;
                 fandomObj.fandomName = fandomName;
                 fandomObj.fandomImageSrc = fandomImageSrc;
                 // If fandom name is not already present in an object in fandoms array, add new fandom object
@@ -26,13 +28,15 @@ window.onload = async function(){
         let fandomRow = document.getElementById("fandom-row");
         let fandomBox = '';
         fandoms.forEach((fandom) => {
+            let fandomID = fandom.fandomID;
             let fandomName = fandom.fandomName;
             let fandomImageSrc = fandom.fandomImageSrc;
-            let fandomImageAlt = fandom.fandomImageAlt;
 
             // Add content to fandom box
-            fandomBox += `<div class="fandom-box col-xl-3 col-lg-4 col-md-6 col-12" style="background-image: url(${fandomImageSrc}); background-size: cover">`;
-            fandomBox += `<h4 class="fandom-name">${fandomName}</h4></div>`
+            fandomBox += '<div class="col-xl-3 col-lg-4 col-md-6 col-12">';
+            fandomBox += `<a class="fandom-link" href="fandom/${fandomID}">`;
+            fandomBox += `<div class="fandom-box" style="background-image: url(${fandomImageSrc}); background-size: cover; background-position: center center">`;
+            fandomBox += `<h4 class="fandom-name">${fandomName}</h4></div></a></div>`;
         })
         fandomRow.innerHTML = fandomBox;
     })
