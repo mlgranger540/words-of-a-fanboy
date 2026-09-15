@@ -45,10 +45,12 @@ app.use((req, res, next) => {
     next();
 });
 
+// Get post page when URL matches /post/uid
 app.get("/post/:uid", (req, res) => {
     res.sendFile("post.html", {root : __dirname + "/../public/"});
 });
 
+// Get posts-by-fandom page when URL matches /fandom/fandom_id
 app.get("/fandom/:fandom_id", (req, res) => {
     res.sendFile("posts-by-fandom.html", {root : __dirname + "/../public/"});
 });
@@ -75,6 +77,7 @@ app.get("/getPostsWithFandoms", async (req, res) => {
     res.send(documents);
 });
 
+// Get all posts that contain selected fandom ID
 app.get("/getPostsByFandom/fandom/:fandom_id", async (req, res) => {
     const documents = await client.getAllByType("post", {
         filters: [
@@ -84,6 +87,7 @@ app.get("/getPostsByFandom/fandom/:fandom_id", async (req, res) => {
     res.send(documents);
 });
 
+// Get post with selected UID
 app.get("/getPost/post/:uid", async (req, res) => {
     const document = await client.getByUID("post", req.params.uid);
     res.send(document);

@@ -105,6 +105,8 @@ These posts ([1](https://stackoverflow.com/questions/52580504/why-is-my-sticky-t
 
 [This post](https://stackoverflow.com/questions/8217419/how-to-determine-if-a-javascript-array-contains-an-object-with-an-attribute-that/8217584#8217584) helped when trying to sort an array by an object within it, after I tried `includes()` and it wasn't working for some reason (apparently it can be weird with looking for objects even though these ([1](https://www.geeksforgeeks.org/javascript/how-to-check-if-an-array-includes-an-object-in-javascript/), [2](https://www.javascripttutorial.net/javascript-array-includes/)) suggest it should work).
 
+[This post](https://stackoverflow.com/questions/4758103/last-segment-of-url-with-javascript) helped when trying to get the last part of a URL in JavaScript.
+
 ### Content and Media
 
 All written content on the website and in the blog posts was created by myself.
