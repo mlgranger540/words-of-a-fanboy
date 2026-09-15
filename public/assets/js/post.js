@@ -51,11 +51,12 @@ window.onload = async function(){
             paragraphs.push(paragraph);
         })
         let hashtags = [];
-        // Loop through fandom objects - if there's a fandom, and it's not already in the list, add hash and push to hashtags array
+        // Loop through fandom objects - if there's a fandom, add hash
         rawFandoms.forEach((fandom) => {
-            if (fandom.fandom !== 'No Fandom') {
-                fandom = fandom.fandom;
+            if (fandom.fandom_name !== 'No Fandom') {
+                fandom = fandom.fandom_name;
                 fandom = '#' + fandom;
+                // If it's not already in the list, and push to hashtags array
                 if (!hashtags.includes(fandom)) {
                     hashtags.push(fandom);
                 }
@@ -74,9 +75,9 @@ window.onload = async function(){
         article += `<h4><span class="entry-date">${dateWritten}</span></h4>`;
         article += `<h4>${type}`;
         for (let i = 0; i < rawFandoms.length; i++) {
-            if (rawFandoms[i].fandom !== 'No Fandom') {
+            if (rawFandoms[i].fandom_name !== 'No Fandom') {
                 if (rawFandoms.length < 2) {
-                    article += `: ${rawFandoms[i].fandom} (${rawFandoms[i].fandom_type})`;
+                    article += `: ${rawFandoms[i].fandom_name} (${rawFandoms[i].fandom_type})`;
                     if (rawFandoms[i].series_number !== null) {
                         article += ` ${rawFandoms[i].series_number}`;
                     }
@@ -85,19 +86,19 @@ window.onload = async function(){
                     }
                 } else if (rawFandoms.length < 3) {
                     if (i < 1) {
-                        article += `: ${rawFandoms[i].fandom} (${rawFandoms[i].fandom_type}) and `;
+                        article += `: ${rawFandoms[i].fandom_name} (${rawFandoms[i].fandom_type}) and `;
                     } else {
-                        article += `${rawFandoms[i].fandom} (${rawFandoms[i].fandom_type})`;
+                        article += `${rawFandoms[i].fandom_name} (${rawFandoms[i].fandom_type})`;
                     }
                 } else {
                     if (i < 1) {
-                        article += `: ${rawFandoms[i].fandom} (${rawFandoms[i].fandom_type}), `;
+                        article += `: ${rawFandoms[i].fandom_name} (${rawFandoms[i].fandom_type}), `;
                     } else if (i < (rawFandoms.length - 2)) {
-                        article += `${rawFandoms[i].fandom} (${rawFandoms[i].fandom_type}), `;
+                        article += `${rawFandoms[i].fandom_name} (${rawFandoms[i].fandom_type}), `;
                     } else if (i < (rawFandoms.length - 1)) {
-                        article += `${rawFandoms[i].fandom} (${rawFandoms[i].fandom_type}) and `;
+                        article += `${rawFandoms[i].fandom_name} (${rawFandoms[i].fandom_type}) and `;
                     } else {
-                        article += `${rawFandoms[i].fandom} (${rawFandoms[i].fandom_type})`;
+                        article += `${rawFandoms[i].fandom_name} (${rawFandoms[i].fandom_type})`;
                     }
                 }
             }
@@ -117,7 +118,6 @@ window.onload = async function(){
 
     // Sticky navbar
     var navbar = document.getElementById("navbar");
-    var sidebar = document.getElementById("sidebar-panel");
     var offsetTop = navbar.offsetTop;
     
     // When scrolling past navbar, add sticky class and remove transparency
@@ -127,10 +127,8 @@ window.onload = async function(){
             navbar.classList.remove("absolute");
             navbar.classList.add("sticky");
             navbar.style.backgroundColor = "rgba(49, 51, 74, 1)";
-            sidebar.classList.add("sticky-2");
         } else {
             navbar.classList.remove("sticky");
-            sidebar.classList.remove("sticky-2");
             navbar.classList.add("absolute");
             navbar.style.backgroundColor = "rgba(49, 51, 74, 0.5)";
         }
