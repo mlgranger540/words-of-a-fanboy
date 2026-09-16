@@ -1,31 +1,22 @@
 window.onload = async function(){
-    const postData = await fetch(`/getPostsByFandom${window.location.pathname}`).then(function(response) {
+    const postData = await fetch(`/getPostsByType${window.location.pathname}`).then(function(response) {
         // The response is a Response instance.
         // You parse the data into a useable format using `.json()`
         return response.json();
     }).then(function(res) {
         let topicHeaderRow = document.getElementById("topic-header-row");
         let topicHeaderContent = '';
-        // Get current fandom ID from URL
-        let chosenFandomID = window.location.pathname.split("/").pop();
-        // Check against first post's fandoms
-        let firstFandoms = res[0].data.fandoms;
-        for (i = 0; i < firstFandoms.length; i++) {
-            let fandomID = firstFandoms[i].fandom_id;
-            let fandomName = firstFandoms[i].fandom_name;
-            let fandomImageSrc = firstFandoms[i].fandom_image.url;
-            // When finding a fandom that matches the current fandom, update topic header with fandom name and image
-            if (fandomID === chosenFandomID) {
-                topicHeaderContent += '<div class="col-xl-1 d-lg-block d-none"></div>';
-                topicHeaderContent += `<div id="topic-header" class="col-xl-10 col-12" style="background-image: url(${fandomImageSrc}); background-size: cover; background-position: center center">`;
-                topicHeaderContent += `<h3>${fandomName}</h3>`;
-                topicHeaderContent += '</div><div class="col-xl-1 d-lg-block d-none"></div>';
-                topicHeaderRow.innerHTML = topicHeaderContent;
-                // Change page title to include fandom name, then break
-                document.title = `Posts in ${fandomName} | In the Words of a Fanboy`;
-                break;
-            }
-        }
+        // Get chosen type and type ID from first post
+        let typeID = res[0].data.type_id;
+        let type = res[0].data.type;
+        // Update topic header with fandom type and image and change page title to include post type
+        topicHeaderContent += '<div class="col-xl-1 d-lg-block d-none"></div>';
+        topicHeaderContent += `<div id="topic-header" class="col-xl-10 col-12" style="background-image: url('../assets/images/${typeID}.jpg'); background-size: cover; background-position: center center">`;
+        topicHeaderContent += `<h3>${type} Posts</h3>`;
+        topicHeaderContent += '</div><div class="col-xl-1 d-lg-block d-none"></div>';
+        topicHeaderRow.innerHTML = topicHeaderContent;
+        document.title = `${type} Posts | In the Words of a Fanboy`;
+        
         // Loop through blog post data from Prismic and add to post object
         // then add object to posts array
         let posts = [];

@@ -12,6 +12,14 @@
                 "destination": "/posts-by-fandom.html"
             },
             {
+                "source": "/media-type/**",
+                "destination": "/posts-by-fandom-type.html"
+            },
+            {
+                "source": "/post-type/**",
+                "destination": "/posts-by-post-type.html"
+            },
+            {
                 "source": "/getPost/**",
                 "function": "woaf_app"
             },
@@ -25,6 +33,14 @@
             },
             {
                 "source": "/getPostsByFandom/**",
+                "function": "woaf_app"
+            },
+            {
+                "source": "/getPostsByFandomType/**",
+                "function": "woaf_app"
+            },
+            {
+                "source": "/getPostsByType/**",
                 "function": "woaf_app"
             },
             {

@@ -413,6 +413,10 @@ h5 {
     #topic-header {
         padding: 5rem;
     }
+
+    #topic-header h3 {
+        font-size: 2.5rem;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -503,7 +507,7 @@ h5 {
     }
 
     h3 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .entry-date {
@@ -524,5 +528,9 @@ h5 {
 
     #topic-header {
         padding: 3rem;
+    }
+
+    #topic-header h3 {
+        font-size: 2.3rem;
     }
 }

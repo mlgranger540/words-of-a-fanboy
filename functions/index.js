@@ -50,14 +50,19 @@ app.get("/post/:uid", (req, res) => {
     res.sendFile("post.html", {root : __dirname + "/../public/"});
 });
 
-// Get posts-by-fandom page when URL matches /fandom/fandom_id
+// Get Posts by Fandom page when URL matches /fandom/fandom_id
 app.get("/fandom/:fandom_id", (req, res) => {
     res.sendFile("posts-by-fandom.html", {root : __dirname + "/../public/"});
 });
 
-// Get posts-by-fandom-type page when URL matches /media-type/fandom_type_id
+// Get Posts by Fandom Type page when URL matches /media-type/fandom_type_id
 app.get("/media-type/:fandom_type_id", (req, res) => {
     res.sendFile("posts-by-fandom-type.html", {root : __dirname + "/../public/"});
+});
+
+// Get Posts by Post Type page when URL matches /post-type/post_type_id
+app.get("/post-type/:post_type_id", (req, res) => {
+    res.sendFile("posts-by-post-type.html", {root : __dirname + "/../public/"});
 });
 
 // GET Routes for Prismic Data
@@ -82,21 +87,43 @@ app.get("/getRecentPosts", async (req, res) => {
     res.send(documents);
 });
 
-// Get all posts that contain selected fandom ID
+// Get all posts that contain selected fandom ID, sorted by date written (newest first), then title (reverse alphabetical)
 app.get("/getPostsByFandom/fandom/:fandom_id", async (req, res) => {
     const documents = await client.getAllByType("post", {
         filters: [
             prismic.filter.at("my.post.fandoms.fandom_id", req.params.fandom_id),
+        ],
+        orderings: [
+            {field: "my.post.date_written", direction: "desc"},
+            {field: "my.post.title", direction: "desc"}
         ]
     });
     res.send(documents);
 });
 
-// Get all posts that contain selected fandom type
+// Get all posts that contain selected fandom type, sorted by date written (newest first), then title (reverse alphabetical)
 app.get("/getPostsByFandomType/media-type/:fandom_type_id", async (req, res) => {
     const documents = await client.getAllByType("post", {
         filters: [
             prismic.filter.at("my.post.fandoms.fandom_type_id", req.params.fandom_type_id),
+        ],
+        orderings: [
+            {field: "my.post.date_written", direction: "desc"},
+            {field: "my.post.title", direction: "desc"}
+        ]
+    });
+    res.send(documents);
+});
+
+// Get all posts that match selected post type, sorted by date written (newest first), then title (reverse alphabetical)
+app.get("/getPostsByType/post-type/:type_id", async (req, res) => {
+    const documents = await client.getAllByType("post", {
+        filters: [
+            prismic.filter.at("my.post.type_id", req.params.type_id),
+        ],
+        orderings: [
+            {field: "my.post.date_written", direction: "desc"},
+            {field: "my.post.title", direction: "desc"}
         ]
     });
     res.send(documents);

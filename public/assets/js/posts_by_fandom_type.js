@@ -13,13 +13,14 @@ window.onload = async function(){
         for (i = 0; i < firstFandoms.length; i++) {
             let fandomTypeID = firstFandoms[i].fandom_type_id;
             let fandomType = firstFandoms[i].fandom_type;
-            // When finding a fandom that matches the current fandom, change page title to include the fandom name, then break
+            // When finding a fandom type that matches the current fandom type, update topic header with fandom type and image
             if (fandomTypeID === chosenFandomTypeID) {
                 topicHeaderContent += '<div class="col-xl-1 d-lg-block d-none"></div>';
                 topicHeaderContent += `<div id="topic-header" class="col-xl-10 col-12" style="background-image: url('../assets/images/${fandomTypeID}.jpg'); background-size: cover; background-position: center center">`;
                 topicHeaderContent += `<h3>${fandomType} Posts</h3>`;
                 topicHeaderContent += '</div><div class="col-xl-1 d-lg-block d-none"></div>';
                 topicHeaderRow.innerHTML = topicHeaderContent;
+                // Change page title to include fandom type, then break
                 document.title = `${fandomType} Posts | In the Words of a Fanboy`;
                 break;
             }
