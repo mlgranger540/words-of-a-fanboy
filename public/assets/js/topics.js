@@ -80,7 +80,8 @@ window.onload = async function(){
             // Add post type to post type box
             postTypeBox += '<div class="col-xl-3 col-lg-4 col-md-6 col-12">';
             postTypeBox += `<a class="topic-link" href="post-type/${postTypeID}">`;
-            postTypeBox += `<div class="topic-box"><h4 class="topic-name">${type}</h4></div></a></div>`;
+            postTypeBox += `<div class="topic-box" style="background-image: url('assets/images/${postTypeID}.jpg'); background-size: cover; background-position: center center">`;
+            postTypeBox += `<h4 class="topic-name">${type}</h4></div></a></div>`;
         })
         postTypesRow.innerHTML = postTypeBox;
     })
