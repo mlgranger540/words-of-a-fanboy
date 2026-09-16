@@ -8,7 +8,7 @@
     <meta name="keywords" content="blog, in the words of a fanboy, words of a fanboy, fanboy, fandom, books, tv, tv shows, movies, anime, games, reviews, discussions, fanfiction, fanfic, fanart, writing, creative writing, sci-fi, fantasy, drama, romance, lgbtq, queer, gay, gay romance">
     <meta name="author" content="Matt Lloyd Granger">
     <!-- Open Graph Metadata -->
-    <meta property="og:title" content="In the Words of a Fanboy" />
+    <meta property="og:title" content="Posts by Fandom Type | In the Words of a Fanboy" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="In the Words of a Fanboy" />
@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@mattyboy540" />
     <!-- Page Title -->
-    <title>In the Words of a Fanboy</title>
+    <title>Posts by Fandom Type | In the Words of a Fanboy</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/22fc12a701.js" crossorigin="anonymous"></script>
     <!-- Script -->
-    <script src="../assets/js/post.js"></script>
+    <script src="../assets/js/posts_by_fandom_type.js"></script>
 </head>
 
 <body>
@@ -97,22 +97,37 @@
             </ul>
         </div>
     </header>
-    
+
     <!-- Main Section -->
     <div class="container-fluid">
+        <div id="topic-header-row" class="row">
+            <div class="col-xl-1 d-lg-block d-none"></div>
+            <div id="topic-header" class="col-xl-10 col-12">
+                <h3>Loading Topic...</h3>
+            </div>
+            <div class="col-xl-1 d-lg-block d-none"></div>
+        </div>
         <div id="content-row" class="row">
-            <div class="col-xl-1 d-xl-block d-none"></div>
-            <div id="article-div" class="panel col-xl-10 col-lg-12">
-                <div id="post-background" class="row">
-                    <article class="inner-panel-clear col-lg-10 col-12">
-                        <h3 class="post-title">Loading...</h3>
-                    </article>
+            <div class="col-xl-1 d-lg-block d-none"></div>
+            <div id="article-div" class="panel col-xl-7 col-lg-8">
+                <article class="inner-panel">
+                    <h3 class="post-title">Loading...</h3>
+                </article>
+            </div>
+            <!-- Sidebar -->
+            <div id="sidebar" class="col-xl-3 col-lg-4 d-lg-block d-none">
+                <div id="sidebar-panel">
+                    <!-- Quick Nav -->
+                    <div id="side-panel-2" class="side-panel sidebar-text">
+                        <h3>Quick Nav</h3>
+                        <ul id="quick-nav" class="side-list"></ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-xl-1 d-xl-block d-none"></div>
+            <div class="col-xl-1 d-lg-block d-none"></div>
         </div>
     </div>
-    
+
     <!-- Back to top button -->
     <div class="container-fluid">
         <div id="content-row" class="row">

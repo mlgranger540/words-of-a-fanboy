@@ -55,7 +55,7 @@ window.onload = async function(){
             fandomBox += '<div class="col-xl-3 col-lg-4 col-md-6 col-12">';
             fandomBox += `<a class="topic-link" href="fandom/${fandomID}">`;
             fandomBox += `<div class="topic-box" style="background-image: url(${fandomImageSrc}); background-size: cover; background-position: center center">`;
-            fandomBox += `<h4 class="topic-name">${fandomName}</h4></div></a></div>`;
+            fandomBox += `<h5 class="topic-name">${fandomName}</h></div></a></div>`;
         })
         fandomRow.innerHTML = fandomBox;
 
@@ -66,9 +66,9 @@ window.onload = async function(){
             let fandomTypeID = type.toLowerCase().replace(/ /g, "-");
             // Add fandom type to fandom type box
             fandomTypeBox += '<div class="col-xl-3 col-lg-4 col-md-6 col-12">';
-            fandomTypeBox += `<a class="topic-link" href="fandom-type/${fandomTypeID}">`;
+            fandomTypeBox += `<a class="topic-link" href="media-type/${fandomTypeID}">`;
             fandomTypeBox += `<div class="topic-box" style="background-image: url('assets/images/${fandomTypeID}.jpg'); background-size: cover; background-position: center center">`;
-            fandomTypeBox += `<h4 class="topic-name">${type}</h4></div></a></div>`;
+            fandomTypeBox += `<h5 class="topic-name">${type}</h5></div></a></div>`;
         })
         fandomTypesRow.innerHTML = fandomTypeBox;
 
@@ -81,7 +81,7 @@ window.onload = async function(){
             postTypeBox += '<div class="col-xl-3 col-lg-4 col-md-6 col-12">';
             postTypeBox += `<a class="topic-link" href="post-type/${postTypeID}">`;
             postTypeBox += `<div class="topic-box" style="background-image: url('assets/images/${postTypeID}.jpg'); background-size: cover; background-position: center center">`;
-            postTypeBox += `<h4 class="topic-name">${type}</h4></div></a></div>`;
+            postTypeBox += `<h5 class="topic-name">${type}</h5></div></a></div>`;
         })
         postTypesRow.innerHTML = postTypeBox;
     })

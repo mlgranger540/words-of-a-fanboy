@@ -308,7 +308,7 @@ hr {
     text-decoration: underline;
 }
 
-/* Topic Boxes */
+/* Topic Pages */
 
 .topic-box {
     height: 9rem;
@@ -319,6 +319,7 @@ hr {
 }
 
 .topic-name {
+    padding: 0;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Noto Serif', 'Times New Roman', Times, serif;
@@ -331,6 +332,26 @@ hr {
 
 .topic-link {
     text-decoration: none;
+}
+
+#topic-header-row {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+#topic-header {
+    background-color: #d85c6b;
+    padding: 7rem;
+}
+
+#topic-header h3 {
+    text-transform: uppercase;
+    font-family: 'Noto Serif', 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: #1d1f2f 2px 2px 5px;
+    /* background-color: rgba(29, 31, 47, 0.7); */
 }
 
 
@@ -383,6 +404,15 @@ h5 {
         margin-left: 1rem;
         margin-right: 1rem;
     }
+
+    #topic-header-row {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    #topic-header {
+        padding: 5rem;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -412,6 +442,10 @@ h5 {
 
     .fandom-name {
         font-size: 1.25rem;
+    }
+
+    #topic-header {
+        padding: 4rem;
     }
 }
 
@@ -482,5 +516,13 @@ h5 {
 
     #content-row {
         margin: 0;
+    }
+
+    #topic-header-row {
+        margin: 0;
+    }
+
+    #topic-header {
+        padding: 3rem;
     }
 }

@@ -1,5 +1,5 @@
 window.onload = async function(){
-    const postData = await fetch(`/getPostsByFandom${window.location.pathname}`).then(function(response) {
+    const postData = await fetch(`/getPostsByFandomType${window.location.pathname}`).then(function(response) {
         // The response is a Response instance.
         // You parse the data into a useable format using `.json()`
         return response.json();
@@ -7,21 +7,20 @@ window.onload = async function(){
         let topicHeaderRow = document.getElementById("topic-header-row");
         let topicHeaderContent = '';
         // Get current fandom ID from URL
-        let chosenFandomID = window.location.pathname.split("/").pop();
+        let chosenFandomTypeID = window.location.pathname.split("/").pop();
         // Check against first post's fandoms
         let firstFandoms = res[0].data.fandoms;
         for (i = 0; i < firstFandoms.length; i++) {
-            let fandomID = firstFandoms[i].fandom_id;
-            let fandomName = firstFandoms[i].fandom_name;
-            let fandomImageSrc = firstFandoms[i].fandom_image.url;
+            let fandomTypeID = firstFandoms[i].fandom_type_id;
+            let fandomType = firstFandoms[i].fandom_type;
             // When finding a fandom that matches the current fandom, change page title to include the fandom name, then break
-            if (fandomID === chosenFandomID) {
+            if (fandomTypeID === chosenFandomTypeID) {
                 topicHeaderContent += '<div class="col-xl-1 d-lg-block d-none"></div>';
-                topicHeaderContent += `<div id="topic-header" class="col-xl-10 col-12" style="background-image: url(${fandomImageSrc}); background-size: cover; background-position: center center">`;
-                topicHeaderContent += `<h3>${fandomName}</h3>`;
+                topicHeaderContent += `<div id="topic-header" class="col-xl-10 col-12" style="background-image: url('../assets/images/${fandomTypeID}.jpg'); background-size: cover; background-position: center center">`;
+                topicHeaderContent += `<h3>${fandomType} Posts</h3>`;
                 topicHeaderContent += '</div><div class="col-xl-1 d-lg-block d-none"></div>';
                 topicHeaderRow.innerHTML = topicHeaderContent;
-                document.title = `Posts in ${fandomName} | In the Words of a Fanboy`;
+                document.title = `${fandomType} Posts | In the Words of a Fanboy`;
                 break;
             }
         }
