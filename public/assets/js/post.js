@@ -122,7 +122,7 @@ window.onload = async function(){
     
     // When scrolling past navbar, add sticky class and remove transparency
     // When scrolling back up, remove sticky class and add transparency
-    function stick(){
+    function stick() {
         if (window.scrollY >= offsetTop) {
             navbar.classList.remove("absolute");
             navbar.classList.add("sticky");

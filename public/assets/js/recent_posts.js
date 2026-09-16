@@ -106,7 +106,7 @@ window.onload = async function(){
             article += '<div class="separator"><hr></div>';
 
             // Create quick nav links
-            quickNavLinks += '<li><a href="#' + id + '">' + title + '</a></li>';
+            quickNavLinks += `<li><a href="#${id}">${title}</a></li>`;
         })
         articleDiv.innerHTML = article;
         quickNav.innerHTML = quickNavLinks;
@@ -115,12 +115,14 @@ window.onload = async function(){
     // Sticky navbar
     var navbar = document.getElementById("navbar");
     var sidebar = document.getElementById("sidebar-panel");
-    var offsetTop = navbar.offsetTop;
+    var navOffsetTop = navbar.offsetTop;
+    var navbarHeight = navbar.offsetHeight;
+    var sidebarOffsetTop = sidebar.offsetTop;
     
     // When scrolling past navbar, add sticky class and remove transparency
     // When scrolling back up, remove sticky class and add transparency
-    function stick(){
-        if (window.scrollY >= offsetTop) {
+    function stick() {
+        if (window.scrollY >= navOffsetTop) {
             navbar.classList.remove("absolute");
             navbar.classList.add("sticky");
             navbar.style.backgroundColor = "rgba(49, 51, 74, 1)";
@@ -133,7 +135,16 @@ window.onload = async function(){
         }
     }
 
+    // function stickSide() {
+    //     if (window.scrollY + navbarHeight >= sidebarOffsetTop) {
+    //         sidebar.classList.add("sticky-2");
+    //     } else {
+    //         sidebar.classList.remove("sticky-2");
+    //     }
+    // }
+
     window.addEventListener("scroll", stick);
+    // window.addEventListener("scroll", stickSide);
 
     // Add current year to copyright line
     var year = new Date().getFullYear();

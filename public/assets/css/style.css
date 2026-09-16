@@ -188,6 +188,12 @@ h2 {
     padding: 2.6rem;
 }
 
+#sidebar-panel {
+    max-height: 93.2vh;
+    overflow-y: auto;
+    scrollbar-color: #685991 #1d1f2f;
+}
+
 .side-panel {
     padding: 2rem;
     margin: 0 0 0 2rem;
