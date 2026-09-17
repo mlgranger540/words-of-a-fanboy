@@ -45,6 +45,11 @@ app.use((req, res, next) => {
     next();
 });
 
+// Get second recent posts page when URL matches /page-n
+app.get("/page-:page", (req, res) => {
+    res.sendFile("recent.html", {root : __dirname + "/../public/"});
+});
+
 // Get post page when URL matches /post/uid
 app.get("/post/:uid", (req, res) => {
     res.sendFile("post.html", {root : __dirname + "/../public/"});
@@ -76,13 +81,27 @@ app.get("/getAllPosts", async (req, res) => {
     res.send(documents);
 });
 
-// Get all posts sorted by date written (newest first), then title (reverse alphabetical)
+// Get paginated posts sorted by date written (newest first), then title (reverse alphabetical) for homepage
 app.get("/getRecentPosts", async (req, res) => {
-    const documents = await client.getAllByType("post", {
+    const documents = await client.getByType("post", {
         orderings: [
             {field: "my.post.date_written", direction: "desc"},
             {field: "my.post.title", direction: "desc"}
-        ]
+        ],
+        pageSize: 2
+    });
+    res.send(documents);
+});
+
+// Get paginated posts sorted by date written (newest first), then title (reverse alphabetical) for page 2 onwards
+app.get("/getRecentPosts/page-:page", async (req, res) => {
+    const documents = await client.getByType("post", {
+        orderings: [
+            {field: "my.post.date_written", direction: "desc"},
+            {field: "my.post.title", direction: "desc"}
+        ],
+        pageSize: 2,
+        page: req.params.page
     });
     res.send(documents);
 });

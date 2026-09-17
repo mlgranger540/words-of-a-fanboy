@@ -1,5 +1,5 @@
 window.onload = async function(){
-    const postsData = await fetch("/getRecentPosts").then(function(response) {
+    const postsData = await fetch(`/getRecentPosts${window.location.pathname}`).then(function(response) {
         // The response is a Response instance.
         // You parse the data into a useable format using `.json()`
         return response.json();

@@ -223,6 +223,10 @@ h3 {
     text-decoration: none;
 }
 
+.post-title-link:hover {
+    color: #ec9442;
+}
+
 h4 {
     margin-bottom: 1.2rem;
     font-family: 'Diphylleia', serif;
@@ -284,6 +288,10 @@ hr {
     color: #fff;
 }
 
+.about-panel-link:hover {
+    text-decoration: underline;
+}
+
 .sidebar-text {
     color: #fff;
 }
@@ -311,6 +319,73 @@ hr {
 
 .side-list a:hover {
     text-decoration: underline;
+}
+
+/* Pagination */
+
+#pagination {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    background-color: #f9f6ef;
+}
+
+.pagination-link {
+    text-align: center;
+    text-decoration: none;
+    color: #685991;
+}
+
+#prev {
+    margin: 0.25rem 0.5rem 0.25rem 0;
+    background: none;
+}
+
+#next {
+    margin: 0.25rem 0 0.25rem 0.5rem;
+    background: none;
+}
+
+button:disabled {
+    color: #8e80ad;
+}
+
+#page-link-div {
+    text-align: center;
+    align-content: center;
+}
+
+.page-link {
+    display: inline;
+    border: 0;
+    padding: 0.2rem 0.4rem;
+    background: none;
+}
+
+button a {
+    text-decoration: none;
+}
+
+button a:hover {
+    color: #ec9442;
+}
+
+.page-link.active {
+    background: #f5dda4;
+}
+
+.page-link:hover {
+    background: none;
+    color: #d85c6b;
+}
+
+.page-link.active:hover {
+    background: #f5dda4;
+}
+
+.page-link:focus {
+    --bs-pagination-focus-box-shadow: none;
 }
 
 /* Topic Pages */
