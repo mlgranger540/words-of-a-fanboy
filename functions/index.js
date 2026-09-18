@@ -169,7 +169,8 @@ app.get("/getPostsByType/post-type/:type_id", async (req, res) => {
 // Get post with selected UID
 app.get("/getPost/post/:uid", async (req, res) => {
     const document = await client.getByUID("post", req.params.uid);
-    res.send(document);
+    const content = prismic.asHTML(document.data.content);
+    res.send({document, content});
 });
 
 exports.woaf_app = functions.https.onRequest(app);

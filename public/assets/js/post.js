@@ -4,26 +4,27 @@ window.onload = async function(){
         // You parse the data into a useable format using `.json()`
         return response.json();
     }).then(function(res) {
+        let doc = res.document;
         // Add blog post data from Prismic to post object
         let post = {};
-        let id = res.uid;
-        let rawTitle = res.data.title;
-        let rawDate = new Date(res.data.date_written);
+        let id = doc.uid;
+        let rawTitle = doc.data.title;
+        let rawDate = new Date(doc.data.date_written);
         let dayNum = rawDate.getDate();
         let day = ordinalSuffix(dayNum);
         let month = rawDate.toLocaleString('default', { month: 'long' });
         let year = rawDate.getFullYear();
         let dateWritten = day + " " + month + " " + year;
-        let rawDateEd = new Date(res.data.date_edited);
+        let rawDateEd = new Date(doc.data.date_edited);
         let dayEdNum = rawDateEd.getDate();
         let dayEd = ordinalSuffix(dayEdNum);
         let monthEd = rawDateEd.toLocaleString('default', { month: 'short' });
         let yearEd = rawDateEd.getFullYear();
         let dateEdited = dayEd + " " + monthEd + " " + yearEd;
-        let type = res.data.type;
-        let rawTopics = res.data.topics;
-        let rawFandoms = res.data.fandoms;
-        let rawContent = res.data.content;
+        let type = doc.data.type;
+        let rawTopics = doc.data.topics;
+        let rawFandoms = doc.data.fandoms;
+        let contentHTML = res.content;
         post.id = id;
         post.rawTitle = rawTitle;
         post.dateWritten = dateWritten;
@@ -31,7 +32,7 @@ window.onload = async function(){
         post.type = type;
         post.rawTopics = rawTopics;
         post.rawFandoms = rawFandoms;
-        post.rawContent = rawContent;
+        post.contentHTML = contentHTML;
 
         // Add post to post section
         let articleDiv = document.getElementById("article-div");
@@ -44,12 +45,6 @@ window.onload = async function(){
         })
         // Update page title with selected post title
         document.title = title + " | In the Words of a Fanboy";
-        // Loop through content objects and push to paragraphs array
-        let paragraphs = [];
-        rawContent.forEach((paragraph) => {
-            paragraph = paragraph.text;
-            paragraphs.push(paragraph);
-        })
         let hashtags = [];
         // Loop through fandom objects - if there's a fandom, add hash
         rawFandoms.forEach((fandom) => {
@@ -104,9 +99,7 @@ window.onload = async function(){
             }
         }
         article += `</h4>`;
-        paragraphs.forEach((paragraph) => {
-            article += `<p>${paragraph}</p>`;
-        })
+        article += contentHTML;
         article += '<p class="tag">';
         hashtags.forEach((tag) => {
             article += `${tag} &ensp;`;
