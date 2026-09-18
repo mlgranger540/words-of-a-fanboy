@@ -33,9 +33,8 @@ window.onload = async function(){
         
         // Add blog posts to article section
         let articleDiv = document.getElementById("article-div");
-        let quickNav = document.getElementById("quick-nav");
         let article = '';
-        let quickNavLinks = '';
+        article += '<div class="inner-panel">';
         posts.forEach((blog) => {
             let id = blog.id;
             // Loop through title objects and push to title array
@@ -47,31 +46,38 @@ window.onload = async function(){
             });
             let type = blog.type;
             let dateWritten = blog.dateWritten;
-            let fandoms = [];
-            // Loop through fandom objects - if there's a fandom, add hash and push to hashtags array
-            let rawFandoms = blog.fandoms;
-            rawFandoms.forEach((fandom) => {
-                fandom = fandom.fandom_name;
-                if (!fandoms.includes(fandom)) {
-                    fandoms.push(fandom);
-                }
-            })
+            let fandoms = blog.fandoms;
 
             // Add data to article HTML
-            article += `<article id="${id}" class="inner-panel">`;
-            article += `<h3><a class="post-title-link" href="/post/${id}">${title}</a></h3>`;
-            article += `<h4>${type}&ensp;|&ensp;<span class="entry-date">${dateWritten}</span></h4>`;
-            article += '<p class="tag">';
-            fandoms.forEach((fandom) => {
-                article += `${fandom}&nbsp;&nbsp;`;
-            })
-            article += '</p>';
-            article += '</article>';
-            article += '<div class="separator"><hr></div>';
-
-            // Create quick nav links
-            quickNavLinks += `<li><a href="#${id}">${title}</a></li>`;
+            article += `<article id="${id}" class="inner-panel-thin">`;
+            article += `<h3 class="archive-entry-title"><a class="post-title-link" href="/post/${id}">${title}</a><span class="archive-entry-date"> – ${dateWritten}</span></h3>`;
+            article += `<h4 class="archive-entry-details">${type}`;
+            for (let i = 0; i < fandoms.length; i++) {
+                if (fandoms[i].fandom_name !== 'No Fandom') {
+                    if (fandoms.length < 2) {
+                        article += `: ${fandoms[i].fandom_name} (${fandoms[i].fandom_type})`;
+                    } else if (fandoms.length < 3) {
+                        if (i < 1) {
+                            article += `: ${fandoms[i].fandom_name} (${fandoms[i].fandom_type}) and `;
+                        } else {
+                            article += `${fandoms[i].fandom_name} (${fandoms[i].fandom_type})`;
+                        }
+                    } else {
+                        if (i < 1) {
+                            article += `: ${fandoms[i].fandom_name} (${fandoms[i].fandom_type}), `;
+                        } else if (i < (fandoms.length - 2)) {
+                            article += `${fandoms[i].fandom_name} (${fandoms[i].fandom_type}), `;
+                        } else if (i < (fandoms.length - 1)) {
+                            article += `${fandoms[i].fandom_name} (${fandoms[i].fandom_type}) and `;
+                        } else {
+                            article += `${fandoms[i].fandom_name} (${fandoms[i].fandom_type})`;
+                        }
+                    }
+                }
+            }
+            article += '</h4></article>';
         })
+        article += '</div><div class="separator"><hr></div>';
 
         // Create pagination div
         let paginationDiv = '';
@@ -82,7 +88,6 @@ window.onload = async function(){
         // Add articles, pagination and quick nav links to page
         articleDiv.innerHTML = article;
         articleDiv.innerHTML += paginationDiv;
-        quickNav.innerHTML = quickNavLinks;
 
         let prevButton = document.getElementById('prev');
         let nextButton = document.getElementById('next');
@@ -167,10 +172,8 @@ window.onload = async function(){
             navbar.classList.remove("absolute");
             navbar.classList.add("sticky");
             navbar.style.backgroundColor = "rgba(49, 51, 74, 1)";
-            sidebar.classList.add("sticky-2");
         } else {
             navbar.classList.remove("sticky");
-            sidebar.classList.remove("sticky-2");
             navbar.classList.add("absolute");
             navbar.style.backgroundColor = "rgba(49, 51, 74, 0.5)";
         }
