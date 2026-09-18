@@ -1,5 +1,5 @@
 window.onload = async function(){
-    const postsData = await fetch("/getRecentPosts").then(function(response) {
+    const postsData = await fetch(`/getRecentPosts${window.location.pathname}`).then(function(response) {
         // The response is a Response instance.
         // You parse the data into a useable format using `.json()`
         return response.json();
@@ -21,24 +21,13 @@ window.onload = async function(){
             let month = rawDate.toLocaleString('default', { month: 'long' });
             let year = rawDate.getFullYear();
             let dateWritten = day + " " + month + " " + year;
-            let rawDateEd = new Date(blog.data.date_edited);
-            let dayEdNum = rawDateEd.getDate();
-            let dayEd = ordinalSuffix(dayEdNum);
-            let monthEd = rawDateEd.toLocaleString('default', { month: 'short' });
-            let yearEd = rawDateEd.getFullYear();
-            let dateEdited = dayEd + " " + monthEd + " " + yearEd;
             let type = blog.data.type;
-            let topics = blog.data.topics;
             let fandoms = blog.data.fandoms;
-            let content = blog.data.content;
             post.id = id;
             post.title = title;
             post.dateWritten = dateWritten;
-            post.dateEdited = dateEdited;
             post.type = type;
-            post.topics = topics;
             post.fandoms = fandoms;
-            post.content = content;
             posts.push(post);
         })
         
@@ -58,51 +47,23 @@ window.onload = async function(){
             });
             let type = blog.type;
             let dateWritten = blog.dateWritten;
-            let dateEdited = blog.dateEdited;
-            // Loop through content objects and push to paragraphs array
-            let contentObjs = blog.content;
-            let paragraphs = [];
-            contentObjs.forEach((paragraph) => {
-                paragraph = paragraph.text;
-                paragraphs.push(paragraph);
-            });
-            let hashtags = [];
+            let fandoms = [];
             // Loop through fandom objects - if there's a fandom, add hash and push to hashtags array
-            let fandoms = blog.fandoms;
-            fandoms.forEach((fandom) => {
-                if (fandom.fandom_name !== 'No Fandom') {
-                    fandom = fandom.fandom_name;
-                    fandom = '#' + fandom;
-                    if (!hashtags.includes(fandom)) {
-                        hashtags.push(fandom);
-                    }
+            let rawFandoms = blog.fandoms;
+            rawFandoms.forEach((fandom) => {
+                fandom = fandom.fandom_name;
+                if (!fandoms.includes(fandom)) {
+                    fandoms.push(fandom);
                 }
-            })
-            // Loop through topics, add hash and push to hashtags array
-            let topics = blog.topics;
-            topics.forEach((topic) => {
-                topic = topic.topic;
-                topic = '#' + topic;
-                hashtags.push(topic);
             })
 
             // Add data to article HTML
             article += `<article id="${id}" class="inner-panel">`;
             article += `<h3><a class="post-title-link" href="/post/${id}">${title}</a></h3>`;
             article += `<h4>${type}&ensp;|&ensp;<span class="entry-date">${dateWritten}</span></h4>`;
-            // Loop through paragraphs and add first four
-            for (let i = 0; i < 4; i++) {
-                if (paragraphs[i] === undefined) {
-                    break;
-                } else {
-                    article += `<p>${paragraphs[i]}</p>`;
-                }
-            };
-            article += '<p class="tbc-dots">...</p>';
-            article += `<p class="read-more"><a class="read-more-link" href="/post/${id}">Read More</a></p>`;
             article += '<p class="tag">';
-            hashtags.forEach((tag) => {
-                article += `${tag}&nbsp;&nbsp;`;
+            fandoms.forEach((fandom) => {
+                article += `${fandom}&nbsp;&nbsp;`;
             })
             article += '</p>';
             article += '</article>';
@@ -198,8 +159,6 @@ window.onload = async function(){
     var navbar = document.getElementById("navbar");
     var sidebar = document.getElementById("sidebar-panel");
     var navOffsetTop = navbar.offsetTop;
-    var navbarHeight = navbar.offsetHeight;
-    var sidebarOffsetTop = sidebar.offsetTop;
     
     // When scrolling past navbar, add sticky class and remove transparency
     // When scrolling back up, remove sticky class and add transparency
@@ -217,16 +176,7 @@ window.onload = async function(){
         }
     }
 
-    // function stickSide() {
-    //     if (window.scrollY + navbarHeight >= sidebarOffsetTop) {
-    //         sidebar.classList.add("sticky-2");
-    //     } else {
-    //         sidebar.classList.remove("sticky-2");
-    //     }
-    // }
-
     window.addEventListener("scroll", stick);
-    // window.addEventListener("scroll", stickSide);
 
     // Add current year to copyright line
     var year = new Date().getFullYear();

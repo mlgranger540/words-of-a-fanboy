@@ -8,6 +8,8 @@ window.onload = async function(){
         let results = res.results;
         let totalPages = res.total_pages;
         let currentPage = res.page;
+        // Add page number to document title
+        document.title = `Page ${currentPage} | In the Words of a Fanboy`;
         // Loop through blog post data from Prismic and add to post object
         // then add object to posts array
         let posts = [];
@@ -99,7 +101,6 @@ window.onload = async function(){
                 }
             };
             article += '<p class="tbc-dots">...</p>';
-            article += '</div>';
             article += `<p class="read-more"><a class="read-more-link" href="/post/${id}">Read More</a></p>`;
             article += '<p class="tag">';
             hashtags.forEach((tag) => {
@@ -150,12 +151,19 @@ window.onload = async function(){
 
         // Function to update previous/next buttons based on the current page
         function updatePagination() {
-            // On homepage, disable previous button and enable next
+            // On homepage, disable previous button
             if (currentPage === 1) {
                 prevButton.disabled = true;
                 nextButton.disabled = false;
                 prevButton.innerHTML = '<a>Previous</a>';
-                nextButton.innerHTML = `<a href="./page-${currentPage+1}">Next</a>`;
+                // If there's only one page total, disable next button, otherwise enable it
+                if (currentPage === totalPages) {
+                    nextButton.disabled = true;
+                    nextButton.innerHTML = '<a>Next</a>';
+                } else {
+                    nextButton.disabled = false;
+                    nextButton.innerHTML = `<a href="./page-${currentPage+1}">Next</a>`;
+                }
             // On page 2, make previous button link to home
             } else if (currentPage === 2) {
                 prevButton.disabled = false;

@@ -4,6 +4,14 @@
         "cleanUrls": true,
         "rewrites": [
             {
+                "source": "/page-**",
+                "destination": "/recent.html"
+            },
+            {
+                "source": "/all-posts/**",
+                "destination": "/all-posts.html"
+            },
+            {
                 "source": "/post/**",
                 "destination": "/post.html"
             },
@@ -24,11 +32,15 @@
                 "function": "woaf_app"
             },
             {
-                "source": "/getAllPosts",
+                "source": "/getRecentPosts",
                 "function": "woaf_app"
             },
             {
-                "source": "/getRecentPosts",
+                "source": "/getRecentPosts/**",
+                "function": "woaf_app"
+            },
+            {
+                "source": "/getAllPosts",
                 "function": "woaf_app"
             },
             {

@@ -50,6 +50,11 @@ app.get("/page-:page", (req, res) => {
     res.sendFile("recent.html", {root : __dirname + "/../public/"});
 });
 
+// Get all posts page when URL matches /all-posts/n
+app.get("/all-posts/:page", (req, res) => {
+    res.sendFile("all-posts.html", {root : __dirname + "/../public/"});
+});
+
 // Get post page when URL matches /post/uid
 app.get("/post/:uid", (req, res) => {
     res.sendFile("post.html", {root : __dirname + "/../public/"});
@@ -71,16 +76,6 @@ app.get("/post-type/:post_type_id", (req, res) => {
 });
 
 // GET Routes for Prismic Data
-// Get all posts sorted by post type
-app.get("/getAllPosts", async (req, res) => {
-    const documents = await client.getAllByType("post", {
-        orderings: [
-            {field: "my.post.type", direction: "asc"}
-        ]
-    });
-    res.send(documents);
-});
-
 // Get paginated posts sorted by date written (newest first), then title (reverse alphabetical) for homepage
 app.get("/getRecentPosts", async (req, res) => {
     const documents = await client.getByType("post", {
@@ -88,7 +83,7 @@ app.get("/getRecentPosts", async (req, res) => {
             {field: "my.post.date_written", direction: "desc"},
             {field: "my.post.title", direction: "desc"}
         ],
-        pageSize: 2
+        pageSize: 5
     });
     res.send(documents);
 });
@@ -100,8 +95,31 @@ app.get("/getRecentPosts/page-:page", async (req, res) => {
             {field: "my.post.date_written", direction: "desc"},
             {field: "my.post.title", direction: "desc"}
         ],
-        pageSize: 2,
+        pageSize: 5,
         page: req.params.page
+    });
+    res.send(documents);
+});
+
+// Get larger number of paginated posts sorted by date written (newest first), then title (reverse alphabetical) for All Posts page
+app.get("/getRecentPosts/all-posts/:page", async (req, res) => {
+    const documents = await client.getByType("post", {
+        orderings: [
+            {field: "my.post.date_written", direction: "desc"},
+            {field: "my.post.title", direction: "desc"}
+        ],
+        pageSize: 10,
+        page: req.params.page
+    });
+    res.send(documents);
+});
+
+// Get all posts sorted by post type
+app.get("/getAllPosts", async (req, res) => {
+    const documents = await client.getAllByType("post", {
+        orderings: [
+            {field: "my.post.type", direction: "asc"}
+        ]
     });
     res.send(documents);
 });
