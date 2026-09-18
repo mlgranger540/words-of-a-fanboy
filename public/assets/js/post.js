@@ -5,8 +5,7 @@ window.onload = async function(){
         return response.json();
     }).then(function(res) {
         let doc = res.document;
-        // Add blog post data from Prismic to post object
-        let post = {};
+        // Get blog post data from Prismic
         let id = doc.uid;
         let rawTitle = doc.data.title;
         let rawDate = new Date(doc.data.date_written);
@@ -25,14 +24,6 @@ window.onload = async function(){
         let rawTopics = doc.data.topics;
         let rawFandoms = doc.data.fandoms;
         let contentHTML = res.content;
-        post.id = id;
-        post.rawTitle = rawTitle;
-        post.dateWritten = dateWritten;
-        post.dateEdited = dateEdited;
-        post.type = type;
-        post.rawTopics = rawTopics;
-        post.rawFandoms = rawFandoms;
-        post.contentHTML = contentHTML;
 
         // Add post to post section
         let articleDiv = document.getElementById("article-div");
