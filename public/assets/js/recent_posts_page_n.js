@@ -8,8 +8,6 @@ window.onload = async function(){
         let results = res.results;
         let totalPages = res.total_pages;
         let currentPage = res.page;
-        // Add page number to document title
-        document.title = `Page ${currentPage} | In the Words of a Fanboy`;
         // Loop through blog post data from Prismic and add to post object
         // then add object to posts array
         let posts = [];

@@ -95,21 +95,11 @@ window.onload = async function(){
 
         // Add page number links for number of pages
         for (let i = 0; i < totalPages; i++) {
-            // Make first page number link to home
-            if (i < 1) {
-                // Add active class to current page number link
-                if (i === (currentPage - 1)) {
-                    pageLinkDiv.innerHTML += `<button class="active pagination-link page-link" type="button"><a href="./">${i+1}</a></button>`;
-                } else {
-                    pageLinkDiv.innerHTML += `<button class="pagination-link page-link" type="button"><a href="./">${i+1}</a></button>`;
-                }
+            // Add active class to current page number link
+            if (i === (currentPage - 1)) {
+                pageLinkDiv.innerHTML += `<button class="active pagination-link page-link" type="button"><a href="./${i+1}">${i+1}</a></button>`;
             } else {
-                // Add active class to current page number link
-                if (i === (currentPage - 1)) {
-                    pageLinkDiv.innerHTML += `<button class="active pagination-link page-link" type="button"><a href="./page-${i+1}">${i+1}</a></button>`;
-                } else {
-                    pageLinkDiv.innerHTML += `<button class="pagination-link page-link" type="button"><a href="./page-${i+1}">${i+1}</a></button>`;
-                }
+                pageLinkDiv.innerHTML += `<button class="pagination-link page-link" type="button"><a href="./${i+1}">${i+1}</a></button>`;
             }
         }
 
@@ -126,33 +116,20 @@ window.onload = async function(){
                     nextButton.innerHTML = '<a>Next</a>';
                 } else {
                     nextButton.disabled = false;
-                    nextButton.innerHTML = `<a href="./page-${currentPage+1}">Next</a>`;
-                }
-            // On page 2, make previous button link to home
-            } else if (currentPage === 2) {
-                prevButton.disabled = false;
-                nextButton.disabled = false;
-                prevButton.innerHTML = '<a href="./">Previous</a>';
-                // If there are only two pages total, disable next button, otherwise enable it
-                if (currentPage === totalPages) {
-                    nextButton.disabled = true;
-                    nextButton.innerHTML = '<a>Next</a>';
-                } else {
-                    nextButton.disabled = false;
-                    nextButton.innerHTML = `<a href="./page-${currentPage+1}">Next</a>`;
+                    nextButton.innerHTML = `<a href="./${currentPage+1}">Next</a>`;
                 }
             // On the last page, disable next button and enable previous
             } else if (currentPage === totalPages) {
                 prevButton.disabled = false;
                 nextButton.disabled = true;
-                prevButton.innerHTML = `<a href="./page-${currentPage-1}">Previous</a>`;
+                prevButton.innerHTML = `<a href="./${currentPage-1}">Previous</a>`;
                 nextButton.innerHTML = '<a>Next</a>';
             // On any other pages, enable both buttons and make them link back/forward one page
             } else {
                 prevButton.disabled = false;
                 nextButton.disabled = false;
-                prevButton.innerHTML = `<a href="./page-${currentPage-1}">Previous</a>`;
-                nextButton.innerHTML = `<a href="./page-${currentPage+1}">Next</a>`;
+                prevButton.innerHTML = `<a href="./${currentPage-1}">Previous</a>`;
+                nextButton.innerHTML = `<a href="./${currentPage+1}">Next</a>`;
             };
         }
 
