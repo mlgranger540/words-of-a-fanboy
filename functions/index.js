@@ -173,4 +173,12 @@ app.get("/getPost/post/:uid", async (req, res) => {
     res.send({document, content});
 });
 
+// Get about info including rich text content as HTML
+app.get("/getAboutInfo/about_info/:uid", async (req, res) => {
+    const document = await client.getByUID("about_info", req.params.uid);
+    const content1 = prismic.asHTML(document.data.content_1);
+    const content2 = prismic.asHTML(document.data.content_2);
+    res.send({content1, content2});
+});
+
 exports.woaf_app = functions.https.onRequest(app);

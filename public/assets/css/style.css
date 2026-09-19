@@ -455,6 +455,20 @@ button a:hover {
     /* background-color: rgba(29, 31, 47, 0.7); */
 }
 
+/* About Page */
+
+#about-div {
+    overflow: auto;
+}
+
+#content-1 {
+    margin-bottom: 2.2rem;
+}
+
+.portrait {
+    width: 40%;
+    padding: 0 0 2.6rem 2.6rem;
+}
 
 /* Back to Top */
 
@@ -568,6 +582,15 @@ h5 {
     #topic-header {
         padding: 4rem;
     }
+
+    #content-1 {
+        margin-bottom: 2rem;
+    }
+
+    .portrait {
+        width: 50%;
+        padding: 0 0 2.3rem 2.3rem;
+    }
 }
 
 @media only screen and (max-width: 426px) {
@@ -657,5 +680,14 @@ h5 {
 
     #topic-header h3 {
         font-size: 2.3rem;
+    }
+
+    #content-1 {
+        margin-bottom: 1.8rem;
+    }
+
+    .portrait {
+        width: 100%;
+        padding: 0 0 1.6rem 0;
     }
 }
