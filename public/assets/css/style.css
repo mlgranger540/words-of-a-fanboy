@@ -505,6 +505,10 @@ footer {
     padding: 0.6rem;
 }
 
+.footer-list a {
+    text-decoration: none;
+}
+
 .social-buttons {
     color: #353851;
     font-size: 1.2rem;
