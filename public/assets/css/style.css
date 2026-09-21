@@ -491,16 +491,29 @@ button a:hover {
 
 /* Footer */
 
-#footer-row {
+footer {
     background-color: #d04f55;
-    padding: 1.6rem 0;
+    padding: 2.2rem 0;
+}
+
+.footer-list {
+    margin-bottom: 1.3rem;
+}
+
+.footer-list li {
+    display: inline;
+    padding: 0.6rem;
+}
+
+.social-buttons {
+    color: #353851;
+    font-size: 1.2rem;
 }
 
 h5 {
     color: #353851;
-    font-size: 1.05rem;
-    padding-left: 1.8rem;
-    padding-right: 1.8rem;
+    font-size: 1.1rem;
+    margin-bottom: 0;
 }
 
 
